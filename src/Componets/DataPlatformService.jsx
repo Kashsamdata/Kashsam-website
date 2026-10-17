@@ -1,314 +1,371 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {
-  BarChart3,
-  CheckCircle2,
   ArrowRight,
-  Sparkles,
-  Calendar,
-  ShieldCheck,
+  BarChart3,
+  CalendarDays,
+  Check,
   Database,
-  Layers,
-  LineChart,
-  Cpu,
+  Layers3,
+  ShieldCheck,
   Workflow,
-  TrendingUp,
-  Server,
-  Zap,
-  Lock,
-  Globe2,
-  Check
+  Zap
 } from 'lucide-react'
 
+import brandLogo from '../assets/Kashsam.png'
+
 function DataPlatformService() {
+  const highlights = [
+    { value: '01', label: 'Connect your data', icon: Database },
+    { value: '02', label: 'Trust your numbers', icon: ShieldCheck },
+    { value: '03', label: 'Act with confidence', icon: Zap }
+  ]
+
   const offerings = [
     {
-      title: 'Business Intelligence & Advanced Analytics',
+      title: 'Business intelligence & analytics',
       description:
-        'Develop powerful BI and analytics solutions using SQL, Python, and Spark to analyze large volumes of data efficiently. Unlock deep business insights, predictive forecasting, and reporting systems that support agile strategic planning.',
-      icon: LineChart,
-      badge: 'Predictive & Real-Time'
-    },
-    {
-      title: 'Data Quality (DQ) & Master Data Management (MDM)',
-      description:
-        'Establish pristine data consistency, remove duplication, and implement enterprise-grade governance frameworks. Ensure every department operates with trusted, standardized, and audit-ready data.',
-      icon: ShieldCheck,
-      badge: 'Zero-Error Governance'
-    },
-    {
-      title: 'KPI Catalogues & Unified Dashboards',
-      description:
-        'Deploy centralized KPI repositories and dynamic interactive dashboards acting as your enterprise single source of truth. Empower leadership to monitor growth targets and react instantly.',
+        'Turn complex information into clear, useful insight with reporting and analytics built around the decisions your teams need to make.',
       icon: BarChart3,
-      badge: 'Single Source of Truth'
+      tag: 'Insight'
     },
     {
-      title: 'Zero Per-User License Restrictions',
+      title: 'Data quality & master data',
       description:
-        'Scale your analytics freely across all teams, departments, and external partners without crippling per-user subscription fees. Democratize data access with complete cost predictability.',
+        'Improve consistency across systems with practical data standards, deduplication and governance your teams can follow.',
+      icon: ShieldCheck,
+      tag: 'Trusted data'
+    },
+    {
+      title: 'KPI catalogues & dashboards',
+      description:
+        'Bring important measures into one shared view, so teams can understand performance and focus on what needs attention.',
+      icon: Layers3,
+      tag: 'One clear view'
+    },
+    {
+      title: 'Scalable data foundations',
+      description:
+        'Connect your sources and build flexible data foundations that can grow with your business and evolving reporting needs.',
       icon: Database,
-      badge: 'Unlimited Scalability'
+      tag: 'Built to scale'
     }
   ]
 
-  const metrics = [
-    { value: '100%', label: 'Cloud-Native Architecture' },
-    { value: '0', label: 'Per-User License Fees' },
-    { value: '24/7', label: 'Expert Support & Monitoring' },
-    { value: 'Real-Time', label: 'Enterprise Reporting Sync' }
-  ]
-
   const workflowSteps = [
-    { step: '01', title: 'Collection & Integration', desc: 'Ingest raw data seamlessly from multi-cloud sources into unified pipelines.' },
-    { step: '02', title: 'Governance & Quality', desc: 'Automate data cleansing, deduplication, and master data structuring.' },
-    { step: '03', title: 'Intelligence & Action', desc: 'Deploy interactive dashboards and predictive machine learning models.' }
+    {
+      step: '01',
+      title: 'Connect',
+      desc: 'Bring together the systems and sources that hold your business data.'
+    },
+    {
+      step: '02',
+      title: 'Organise',
+      desc: 'Improve quality, establish shared definitions and shape reliable data.'
+    },
+    {
+      step: '03',
+      title: 'Understand',
+      desc: 'Make useful insights accessible through reporting and analytics.'
+    },
+    {
+      step: '04',
+      title: 'Improve',
+      desc: 'Use what you learn to guide decisions and keep refining outcomes.'
+    }
   ]
 
   return (
-    <div className="overflow-hidden bg-slate-950 text-slate-100 selection:bg-blue-600 selection:text-white font-sans">
-
-      {/* ================= HERO SECTION ================= */}
-      <section className="relative pt-28 pb-24 lg:pt-40 lg:pb-32 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 border-b border-slate-800/80">
-        <div className="absolute inset-0 z-0 opacity-30 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-600/20 blur-[150px] rounded-full" />
-          <div className="absolute top-1/4 right-1/4 w-[400px] h-[300px] bg-indigo-600/15 blur-[130px] rounded-full" />
-        </div>
-        
-        <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-400/20 px-4 py-1.5 text-xs font-semibold text-blue-400 shadow-sm mb-6 backdrop-blur-md">
-            <Sparkles size={14} className="text-blue-400 animate-pulse" /> Enterprise Data Ecosystems & Intelligence
-          </div>
-
-          <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-blue-500 mb-4">
-            Real-Time Data Analytics & Reporting Solutions
-          </p>
-          
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
-            Data Platform & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-sky-300">Analytics</span>
-          </h1>
-          
-          <p className="mt-6 text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed font-normal max-w-3xl mx-auto">
-            We build unified, cloud-native data ecosystems that turn raw information into meaningful, actionable insights. Empower your entire organization with faster, smarter, and completely unrestricted decision-making capabilities.
-          </p>
-
-          {/* Hero CTAs */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2.5 rounded-2xl bg-blue-600 px-8 py-4 text-sm font-bold text-white shadow-xl shadow-blue-600/25 transition-all hover:bg-blue-500 active:scale-[0.98]"
-            >
-              Schedule a Consultation
-              <Calendar size={17} />
-            </Link>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 rounded-2xl bg-slate-900 border border-slate-800 px-8 py-4 text-sm font-bold text-slate-200 transition-all hover:bg-slate-800 hover:text-white"
-            >
-              Explore All Solutions
-              <ArrowRight size={17} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= METRICS TRUST STRIP ================= */}
-      <section className="border-b border-slate-800/60 bg-slate-900/50 backdrop-blur-sm py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {metrics.map((m, idx) => (
-              <div key={idx} className="space-y-1">
-                <div className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-                  {m.value}
-                </div>
-                <div className="text-xs sm:text-sm font-medium text-slate-400">{m.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ================= OVERVIEW WITH PREMIUM VISUAL ================= */}
-      <section className="py-24 lg:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
-              <Layers size={14} /> Strategic Growth Asset
+    <div className="overflow-hidden bg-white text-slate-900">
+      <section className="relative bg-[#f5f8fc]">
+        <div className="pointer-events-none absolute -right-40 -top-48 h-[34rem] w-[34rem] rounded-full bg-blue-100/70 blur-3xl" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:px-10 lg:py-24">
+          <div className="max-w-2xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-3.5 py-2 text-xs font-bold uppercase tracking-[0.14em] text-blue-800 shadow-sm">
+              <span className="h-2 w-2 rounded-full bg-blue-600" />
+              Data platform &amp; analytics
             </div>
-            
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Transforming Complex Data into Competitive Advantage
-            </h2>
-            
-            <p className="text-slate-300 leading-relaxed text-base sm:text-lg">
-              From data engineering to advanced machine learning intelligence, we create scalable platforms that support real-time automation and enterprise-wide visibility. Whether you need centralized dashboards or rigorous data hygiene, we ensure your data operates at peak strategic value.
+
+            <h1 className="max-w-xl text-4xl font-bold leading-[1.08] tracking-tight text-slate-950 sm:text-5xl lg:text-[3.65rem]">
+              Make your data work harder.
+              <span className="mt-2 block text-blue-700">Make decisions clearer.</span>
+            </h1>
+
+            <p className="mt-6 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+              Connect your data, build trust in your numbers and give your teams
+              the insight to move forward with confidence.
             </p>
 
-            <div className="space-y-3 pt-2">
-              {[
-                'Streamlined data collection, integration, and cloud-native architecture',
-                'Zero per-user license barriers for maximum corporate adoption',
-                'Unified performance metrics acting as your enterprise single source of truth'
-              ].map((text, i) => (
-                <div key={i} className="flex items-center gap-3 text-sm text-slate-200">
-                  <div className="h-5 w-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
-                    <Check size={12} strokeWidth={3} />
-                  </div>
-                  {text}
-                </div>
-              ))}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                to="/contact"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-800 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-900/15 transition hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800"
+              >
+                Talk to our team
+                <ArrowRight size={17} />
+              </Link>
+              <Link
+                to="/services"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-blue-300 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800"
+              >
+                Explore our services
+              </Link>
+            </div>
+
+            <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-600">
+              <span className="inline-flex items-center gap-2">
+                <Check size={16} className="text-blue-700" />
+                Practical, business-led solutions
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <Check size={16} className="text-blue-700" />
+                Designed around your data
+              </span>
             </div>
           </div>
 
-          <div className="lg:col-span-6 relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-xl opacity-20" />
-            <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900 group">
-              <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" 
-                alt="Enterprise Analytics Interface"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent flex items-end p-8">
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-lg">
-                    <Zap size={20} />
-                  </div>
-                  <div>
-                    <h4 className="text-white text-sm font-bold">Real-Time Processing Engine</h4>
-                    <p className="text-xs text-slate-400">High-speed synchronization across multiple databases</p>
-                  </div>
+          <div className="relative mx-auto w-full max-w-xl lg:ml-auto">
+            <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-blue-200/70 via-sky-100/60 to-indigo-100/70 blur-2xl" />
+            <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_25px_80px_-30px_rgba(15,45,90,0.35)] sm:p-7">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-5">
+                <img
+                  src={brandLogo}
+                  alt="Kashsam Data Solutions"
+                  className="h-10 w-auto object-contain sm:h-12"
+                />
+                <span className="rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700">
+                  Data overview
+                </span>
+              </div>
+
+              <div className="mt-5 flex items-end justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium text-slate-500">Business performance</p>
+                  <p className="mt-1 text-2xl font-bold tracking-tight text-slate-900">
+                    One connected view
+                  </p>
+                </div>
+                <div className="rounded-xl bg-blue-50 p-3 text-blue-800">
+                  <BarChart3 size={22} />
                 </div>
               </div>
-            </div>
-          </div>
 
-        </div>
-      </section>
-
-      {/* ================= KEY OFFERINGS GRID ================= */}
-      <section className="py-24 lg:py-32 bg-slate-900/40 border-t border-slate-800/80 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-blue-400">
-              Core Capabilities
-            </span>
-            <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl mt-3">
-              Our Key Offerings
-            </h2>
-            <p className="text-slate-400 mt-4 text-sm sm:text-base">
-              Engineered for enterprises requiring absolute precision, scalability, and performance.
-            </p>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            {offerings.map((item, index) => {
-              const IconComponent = item.icon
-              return (
+              <div className="mt-6 rounded-xl border border-slate-100 bg-slate-50/80 p-4 sm:p-5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                    Sample activity
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-700">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    Connected
+                  </span>
+                </div>
                 <div
-                  key={index}
-                  className="group relative bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800/80 rounded-3xl p-8 sm:p-10 shadow-xl hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                  aria-label="Illustrative upward data trend"
+                  className="mt-5 flex h-32 items-end gap-2 sm:h-40 sm:gap-3"
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full blur-2xl group-hover:bg-blue-600/10 transition-colors" />
+                  {[38, 53, 45, 68, 57, 77, 64, 90, 74, 100, 83, 94].map(
+                    (height, index) => (
+                      <div
+                        key={index}
+                        className={`min-w-0 flex-1 rounded-t-sm ${
+                          index === 9 ? 'bg-blue-800' : 'bg-blue-200'
+                        }`}
+                        style={{ height: `${height}%` }}
+                      />
+                    )
+                  )}
+                </div>
+                <div className="mt-3 flex justify-between text-[11px] text-slate-400">
+                  <span>Source data</span>
+                  <span>Shared metrics</span>
+                  <span>Business insight</span>
+                </div>
+              </div>
 
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="h-14 w-14 rounded-2xl bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center shadow-inner shrink-0 group-hover:scale-110 transition-transform">
-                        <IconComponent size={26} />
-                      </div>
-                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800/80 text-blue-400 border border-slate-700/60">
-                        {item.badge}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
-                      {item.description}
+              <div className="mt-4 grid grid-cols-3 gap-3">
+                {[
+                  ['Sources', 'Connected'],
+                  ['Quality', 'Checked'],
+                  ['Reports', 'Unified']
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-xl border border-slate-100 p-3">
+                    <p className="text-[11px] text-slate-500 sm:text-xs">{label}</p>
+                    <p className="mt-1 text-xs font-semibold text-slate-800 sm:text-sm">
+                      {value}
                     </p>
                   </div>
-
-                  <div className="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between">
-                    <span className="flex items-center gap-2 text-xs font-bold text-emerald-400">
-                      <CheckCircle2 size={16} /> Production Ready
-                    </span>
-                    <Link to="/contact" className="text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                      Learn More <ArrowRight size={14} />
-                    </Link>
-                  </div>
-                </div>
-              )
-            })}
+                ))}
+              </div>
+            </div>
+            <div className="absolute -bottom-5 -left-5 hidden items-center gap-3 rounded-xl border border-slate-100 bg-white px-4 py-3 shadow-lg sm:flex">
+              <div className="rounded-lg bg-amber-50 p-2 text-amber-700">
+                <Zap size={18} />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-slate-900">From data to action</p>
+                <p className="text-[11px] text-slate-500">A clearer path forward</p>
+              </div>
+            </div>
           </div>
-
         </div>
       </section>
 
-      {/* ================= WORKFLOW STEPS ================= */}
-      <section className="py-24 lg:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-blue-400">
-            End-to-End Execution
-          </span>
-          <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl mt-3">
-            How We Transform Your Data Pipeline
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {workflowSteps.map((s, idx) => (
-            <div key={idx} className="bg-slate-900/60 border border-slate-800 rounded-3xl p-8 relative overflow-hidden">
-              <span className="text-6xl font-black text-slate-800/60 absolute top-4 right-6 pointer-events-none">
-                {s.step}
-              </span>
-              <div className="h-10 w-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-sm mb-6 shadow-md relative z-10">
-                {s.step}
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-7xl divide-y divide-slate-200 px-5 sm:px-8 md:grid-cols-3 md:divide-x md:divide-y-0 lg:px-10">
+          {highlights.map(({ value, label, icon: Icon }) => (
+            <div key={value} className="flex items-center gap-4 py-5 md:px-7 md:py-6 first:md:pl-0 last:md:pr-0">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-800">
+                <Icon size={21} />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2 relative z-10">{s.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed relative z-10">{s.desc}</p>
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                  {value}
+                </p>
+                <p className="mt-0.5 text-sm font-semibold text-slate-800">{label}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ================= CONCLUSION PARAGRAPH ================= */}
-      <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-blue-950/40 via-slate-900 to-indigo-950/40 border border-blue-500/20 shadow-xl">
-          <p className="text-lg sm:text-xl text-slate-200 leading-relaxed font-medium">
-            With our Data Platform & Analytics services, businesses gain absolute control over their information assets, stronger decision-making capabilities, and a future-ready digital foundation for sustainable global growth.
+      <section className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:px-10 lg:py-24">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+            The opportunity
           </p>
+          <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-950 sm:text-4xl">
+            Better data changes how business moves.
+          </h2>
+        </div>
+        <div className="space-y-5 text-base leading-7 text-slate-600">
+          <p>
+            When information is spread across systems, it takes more effort to
+            see what is happening and decide what to do next. A well-designed
+            data platform brings those pieces together.
+          </p>
+          <p>
+            Kashsam Data Solutions helps you shape a dependable foundation for
+            reporting, analytics and future growth—one that fits your
+            organisation, not a one-size-fits-all template.
+          </p>
+          <ul className="grid gap-3 pt-2 sm:grid-cols-2">
+            {[
+              'Bring key sources into a shared view',
+              'Create consistent, trusted measures',
+              'Make useful insights easier to find',
+              'Build foundations that can evolve'
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2.5 text-sm font-medium text-slate-700">
+                <Check size={17} className="mt-0.5 shrink-0 text-blue-700" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* ================= CONSULTATION CTA SECTION ================= */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-950 via-slate-950 to-indigo-950 py-24 text-white text-center border-t border-slate-800">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-        
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
-          <span className="inline-block rounded-full bg-blue-500/20 border border-blue-400/30 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-300">
-            Need A Consultation?
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-            We are here to answer your questions 24/7
-          </h2>
-          <p className="text-slate-300 max-w-xl mx-auto text-base sm:text-lg">
-            Connect with our core data architects today to discover how we can transform your enterprise analytics stack.
-          </p>
-          <div className="pt-6">
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-blue-600 px-9 py-4 text-sm font-bold text-white shadow-2xl shadow-blue-600/40 transition-all hover:bg-blue-500 active:scale-[0.98]"
-            >
-              Contact Our Team
-              <Calendar size={18} />
-            </Link>
+      <section className="border-y border-slate-200 bg-[#f7f9fc] py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="mb-10 flex flex-col justify-between gap-5 sm:mb-12 sm:flex-row sm:items-end">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+                What we do
+              </p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+                The building blocks for confident decisions
+              </h2>
+            </div>
+            <p className="max-w-md text-sm leading-6 text-slate-600">
+              From data foundations to the final dashboard, we help make
+              information more useful across your organisation.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {offerings.map(({ title, description, icon: Icon, tag }) => (
+              <article
+                key={title}
+                className="group flex min-h-[17rem] flex-col rounded-xl border border-slate-200 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-900/5"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-800 transition group-hover:bg-blue-800 group-hover:text-white">
+                    <Icon size={21} />
+                  </div>
+                  <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                    {tag}
+                  </span>
+                </div>
+                <h3 className="mt-6 text-lg font-bold leading-snug text-slate-900">{title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-6 text-slate-600">{description}</p>
+                <Link
+                  to="/contact"
+                  aria-label={`Learn more about ${title}`}
+                  className="mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-blue-800 hover:text-blue-950"
+                >
+                  Learn more
+                  <ArrowRight size={15} className="transition group-hover:translate-x-1" />
+                </Link>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+        <div className="mb-10 max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
+            A considered approach
+          </p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+            From fragmented data to forward momentum
+          </h2>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {workflowSteps.map(({ step, title, desc }, index) => (
+            <article key={step} className="relative rounded-xl border border-slate-200 bg-white p-6">
+              {index < workflowSteps.length - 1 && (
+                <div className="absolute right-[-1rem] top-10 z-10 hidden h-px w-4 bg-blue-200 lg:block" />
+              )}
+              <span className="text-sm font-bold tracking-widest text-blue-700">{step}</span>
+              <div className="mt-5 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-800">
+                {index === 0 ? <Database size={19} /> : index === 1 ? <ShieldCheck size={19} /> : index === 2 ? <BarChart3 size={19} /> : <Workflow size={19} />}
+              </div>
+              <h3 className="mt-5 text-lg font-bold text-slate-900">{title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{desc}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-5 pb-16 sm:px-8 sm:pb-20 lg:px-10 lg:pb-24">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-2xl bg-[#102b52] px-6 py-12 text-white sm:px-10 sm:py-14 lg:px-16">
+          <div className="pointer-events-none absolute -right-16 -top-40 h-96 w-96 rounded-full border-[48px] border-blue-400/10" />
+          <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-200">
+                Build a clearer picture
+              </p>
+              <h2 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+                Let&apos;s make your data more useful.
+              </h2>
+              <p className="mt-4 max-w-xl text-sm leading-6 text-blue-100 sm:text-base">
+                Tell us where you are today and what you want to understand
+                better. We&apos;ll help you explore the right next step.
+              </p>
+            </div>
+            <Link
+              to="/contact"
+              className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-[#102b52] transition hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              <CalendarDays size={17} />
+              Schedule a conversation
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
