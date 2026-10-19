@@ -8,6 +8,63 @@ import {
 
 import brandLogo from '../assets/Kashsam.png'
 
+const navLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'About Us', path: '/about-us' },
+  { name: 'Our Team', path: '/our-team' },
+  { name: 'Services', path: '/services' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Our Products', path: '/our-products' },
+]
+
+const NavigationLinks = ({ mobile = false, isActive, onNavigate }) => (
+  <>
+    {navLinks.map((link) => {
+      const active = isActive(link.path)
+
+      return (
+        <Link
+          key={link.path}
+          to={link.path}
+          onClick={onNavigate}
+          className={
+            mobile
+              ? `block rounded-lg px-4 py-3 text-base font-medium transition ${
+                  active
+                    ? 'bg-blue-50 font-semibold text-blue-800'
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-blue-800'
+                }`
+              : `relative px-3 py-2 text-sm font-medium transition-colors ${
+                  active
+                    ? 'font-semibold text-blue-800'
+                    : 'text-gray-700 hover:text-blue-800'
+                }`
+          }
+        >
+          {link.name}
+
+          {!mobile && active && (
+            <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-blue-800" />
+          )}
+        </Link>
+      )
+    })}
+
+    <div className={mobile ? 'mt-3 border-t border-gray-100 pt-4' : 'ml-3'}>
+      <Link
+        to="/contact"
+        onClick={onNavigate}
+        className={`inline-flex items-center justify-center gap-2 rounded-full bg-primary-base px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_22px_rgba(0,80,160,0.18)] transition-all hover:bg-primary-hover hover:shadow-[0_10px_26px_rgba(0,80,160,0.25)] active:scale-[0.98] ${
+          mobile ? 'w-full' : ''
+        }`}
+      >
+        Get Started
+        <ArrowRight size={15} />
+      </Link>
+    </div>
+  </>
+)
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -39,13 +96,6 @@ const Navbar = () => {
     }
   }, [isOpen])
 
-  /* --------------------------------
-     Close Mobile Menu on Route Change
-  -------------------------------- */
-  useEffect(() => {
-    setIsOpen(false)
-  }, [location.pathname])
-
   const isActive = (path) => {
     if (path === '/') {
       return location.pathname === '/'
@@ -54,93 +104,7 @@ const Navbar = () => {
     return location.pathname === path
   }
 
-  /* --------------------------------
-     Navigation Links
-  -------------------------------- */
-  const navLinks = [
-    {
-      name: 'Home',
-      path: '/',
-    },
-    {
-      name: 'About Us',
-      path: '/about-us',
-    },
-    {
-      name: 'Our Team',
-      path: '/our-team',
-    },
-    {
-      name: 'Services',
-      path: '/services',
-    },
-    {
-      name: 'Blog',
-      path: '/blog',
-    },
-    { name: 'Our Products', path: '/our-products' }
-  ]
-
-  /* --------------------------------
-     Desktop / Mobile Navigation
-  -------------------------------- */
-  const NavigationLinks = ({ mobile = false }) => {
-    return (
-      <>
-        {/* Main Links */}
-        {navLinks.map((link) => {
-          const active = isActive(link.path)
-
-          return (
-            <Link
-              key={link.path}
-              to={link.path}
-              onClick={() => setIsOpen(false)}
-              className={
-                mobile
-                  ? `block rounded-lg px-4 py-3 text-base font-medium transition ${
-                      active
-                        ? 'bg-blue-50 font-semibold text-blue-800'
-                        : 'text-gray-700 hover:bg-gray-50 hover:text-blue-800'
-                    }`
-                  : `relative px-3 py-2 text-sm font-medium transition-colors ${
-                      active
-                        ? 'font-semibold text-blue-800'
-                        : 'text-gray-700 hover:text-blue-800'
-                    }`
-              }
-            >
-              {link.name}
-
-              {!mobile && active && (
-                <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-blue-800" />
-              )}
-            </Link>
-          )
-        })}
-
-        {/* CTA */}
-        <div
-          className={
-            mobile
-              ? 'mt-3 border-t border-gray-100 pt-4'
-              : 'ml-3'
-          }
-        >
-          <Link
-            to="/contact"
-            onClick={() => setIsOpen(false)}
-            className={`inline-flex items-center justify-center gap-2 rounded-full bg-primary-base px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_22px_rgba(0,80,160,0.18)] transition-all hover:bg-primary-hover hover:shadow-[0_10px_26px_rgba(0,80,160,0.25)] active:scale-[0.98] ${
-              mobile ? 'w-full' : ''
-            }`}
-          >
-            Get Started
-            <ArrowRight size={15} />
-          </Link>
-        </div>
-      </>
-    )
-  }
+  const handleNavigation = () => setIsOpen(false)
 
   return (
     <header
@@ -173,7 +137,7 @@ const Navbar = () => {
 
           {/* Desktop */}
           <div className="hidden items-center md:flex">
-            <NavigationLinks />
+            <NavigationLinks isActive={isActive} onNavigate={handleNavigation} />
           </div>
 
           {/* Mobile Button */}
@@ -237,7 +201,7 @@ const Navbar = () => {
           {/* Drawer Content */}
           <div className="flex-1 overflow-y-auto px-6 py-6">
             <div className="flex flex-col gap-1">
-              <NavigationLinks mobile />
+              <NavigationLinks mobile isActive={isActive} onNavigate={handleNavigation} />
             </div>
           </div>
 

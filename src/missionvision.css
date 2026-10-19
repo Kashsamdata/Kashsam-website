@@ -1,0 +1,239 @@
+
+.mission-vision {
+  position: relative;
+  overflow: hidden;
+  padding: 65px 5% 75px;
+  background: #ffffff;
+  color: #292d30;
+  font-family: "DM Sans", sans-serif;
+}
+
+.mv-layout {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding-top: 100px;
+  position: relative;
+}
+
+/* Circular image */
+
+.mv-image-wrap {
+  position: absolute;
+  top: -85px;
+  right: -70px;
+  width: 310px;
+  height: 310px;
+  z-index: 2;
+}
+
+.mv-image-ring {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border: 1px solid #d8dedb;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 8px #ffffff,
+    0 0 0 7px #76bd36;
+}
+
+.mv-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Rows */
+
+.mv-vision-row,
+.mv-mission-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 245px;
+}
+
+.mv-vision-row {
+  justify-content: flex-start;
+}
+
+.mv-mission-row {
+  justify-content: flex-end;
+  margin-top: -5px;
+}
+
+/* Description panels */
+
+.mv-description {
+  position: relative;
+  z-index: 2;
+  width: 55%;
+  min-height: 145px;
+  padding: 26px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #858b8b;
+}
+
+.mv-description h3 {
+  margin: 0 0 8px;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #303438;
+}
+
+.mv-description p {
+  margin: 0;
+  color: #666c70;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.mv-vision-description {
+  text-align: right;
+  border-left: 7px solid #76bd36;
+}
+
+.mv-mission-description {
+  text-align: left;
+  border-right: 7px solid #103f49;
+}
+
+/* Number circles / half-circle motif */
+
+.mv-number {
+  position: absolute;
+  z-index: 1;
+  width: 145px;
+  height: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.mv-vision-number {
+  left: 48%;
+  top: 0;
+  background: #103f49;
+  border-radius: 0 150px 150px 0;
+}
+
+.mv-mission-number {
+  left: 39%;
+  top: 0;
+  background: #76bd36;
+  border-radius: 150px 0 0 150px;
+}
+
+/* Central icon circles */
+
+.mv-icon {
+  position: absolute;
+  z-index: 4;
+  width: 82px;
+  height: 82px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #bfc7c4;
+  border-radius: 50%;
+  background: #ffffff;
+  font-size: 43px;
+}
+
+.mv-vision-icon {
+  left: calc(48% - 41px);
+  top: 75px;
+  color: #103f49;
+}
+
+.mv-mission-icon {
+  left: calc(48% - 41px);
+  top: 75px;
+  color: #76bd36;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .mission-vision {
+    padding: 45px 5%;
+  }
+
+  .mv-image-wrap {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 210px;
+    height: 210px;
+    margin: 0 auto 30px;
+  }
+
+  .mv-layout {
+    padding-top: 10px;
+  }
+
+  .mv-vision-row,
+  .mv-mission-row {
+    min-height: auto;
+    margin: 0 0 28px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mv-description {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 26px;
+    text-align: left;
+  }
+
+  .mv-number,
+  .mv-icon {
+    display: none;
+  }
+
+  .mv-vision-description {
+    border-left: 6px solid #76bd36;
+    border-right: 1px solid #858b8b;
+  }
+
+  .mv-mission-description {
+    border-right: 6px solid #103f49;
+    border-left: 1px solid #858b8b;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-vision {
+    padding: 35px 20px;
+  }
+
+  .mv-image-wrap {
+    width: 175px;
+    height: 175px;
+  }
+
+  .mv-description {
+    padding: 22px;
+  }
+
+  .mv-description h3 {
+    font-size: 20px;
+  }
+
+  .mv-description p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+}
