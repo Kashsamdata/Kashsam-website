@@ -18,6 +18,7 @@ const servicesData = [
     id: 'data-platform',
     icon: BarChart3,
     title: 'Data Platform & Analytics',
+    path: '/data-platform-analytics',
     badge: 'Analytics & Cloud',
     description:
       'We build unified, cloud-native ecosystems for analytics, governance, and automation - transforming raw data into actionable insights.',
@@ -33,6 +34,7 @@ const servicesData = [
     id: 'iot-connectivity',
     icon: Cpu,
     title: 'IoT & Connectivity Solutions',
+    path: '/iot-connectivity-solutions',
     badge: 'Digital Interfaces',
     description:
       'We design digital products and enterprise interfaces that are human-centred, data-informed, and conversion-optimised.',
@@ -48,6 +50,7 @@ const servicesData = [
     id: 'erp-crm',
     icon: Layers,
     title: 'ERP and CRM Consultancy',
+    path: '/seamless-erp-and-crm-integration',
     badge: 'Enterprise Advisory',
     description:
       'We provide strategic and technical advisory for organizations seeking end-to-end Implementation and Support for ERP and CRM. Our years of experience helps organizations roll out industry standard processes and systems whether SAP, MS Business Central, EPICOR to name a few.',
@@ -62,6 +65,7 @@ const servicesData = [
     id: 'web-delivery',
     icon: Code2,
     title: 'Web Delivery & Implementation',
+    path: '/web-delivery-implementation',
     badge: 'Full-Cycle Engineering',
     description:
       'We provide complete onshore and offshore development for end-to-end digital rollouts - from architecture to deployment and optimisation.',
@@ -76,6 +80,7 @@ const servicesData = [
     id: 'ai-automation',
     icon: Bot,
     title: 'AI-Enabled Process Automation',
+    path: '/ai-enabled-process-automation',
     badge: 'Intelligent Workflows',
     description:
       'We eliminate manual effort through intelligent automation - empowering teams to focus on innovation and strategy.',
@@ -91,6 +96,7 @@ const servicesData = [
     id: 'security-services',
     icon: ShieldCheck,
     title: 'Security Services',
+    path: '/security-services',
     badge: 'Enterprise Protection',
     description:
       'Strengthening Your Business with Advanced Security Services to safeguard assets, maintain compliance, and mitigate risks.',
@@ -194,10 +200,10 @@ function Services() {
                 {/* Bottom Action Link */}
                 <div className="pt-4 border-t border-gray-100">
                   <Link
-                    to="/contact"
+                    to={service.path}
                     className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 transition-colors"
                   >
-                    Enquire About This Service
+                    Explore This Service
                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>

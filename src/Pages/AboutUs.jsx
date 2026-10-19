@@ -50,9 +50,9 @@ function AboutUs() {
                 About Us
               </span>
               
-              <h2 className="text-3xl font-extrabold tracking-tight text-gray-950 sm:text-4xl lg:text-5xl leading-tight">
+              <h1 className="text-3xl font-extrabold tracking-tight text-gray-950 sm:text-4xl lg:text-5xl leading-tight">
                 100 + YEARS OF CUMMULATIVE EXPERIENCE
-              </h2>
+              </h1>
 
               <p className="text-base leading-relaxed text-gray-600">
                 Kashsam Data Solutions Private Limited was incorporated on June 6, 2022, as a private limited. With a long and successful career behind them, Professionals join hands to make Data Driven Technologies more accessible to small and medium-sized companies.

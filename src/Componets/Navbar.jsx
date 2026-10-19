@@ -4,6 +4,7 @@ import {
   Menu,
   X,
   ArrowRight,
+  ChevronDown,
 } from 'lucide-react'
 
 import brandLogo from '../assets/Kashsam.png'
@@ -12,58 +13,129 @@ const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about-us' },
   { name: 'Our Team', path: '/our-team' },
-  { name: 'Services', path: '/services' },
   { name: 'Blog', path: '/blog' },
   { name: 'Our Products', path: '/our-products' },
 ]
 
-const NavigationLinks = ({ mobile = false, isActive, onNavigate }) => (
-  <>
-    {navLinks.map((link) => {
-      const active = isActive(link.path)
+const serviceLinks = [
+  { name: 'Data Platform & Analytics', path: '/data-platform-analytics' },
+  { name: 'IoT & Connectivity Solutions', path: '/iot-connectivity-solutions' },
+  { name: 'Seamless ERP and CRM Consultancy', path: '/seamless-erp-and-crm-integration' },
+  { name: 'Web Delivery & Implementation', path: '/web-delivery-implementation' },
+  { name: 'AI-Enabled Process Automation', path: '/ai-enabled-process-automation' },
+  { name: 'Security Services', path: '/security-services' },
+]
 
-      return (
-        <Link
-          key={link.path}
-          to={link.path}
-          onClick={onNavigate}
-          className={
-            mobile
-              ? `block rounded-lg px-4 py-3 text-base font-medium transition ${
-                  active
-                    ? 'bg-blue-50 font-semibold text-blue-800'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-blue-800'
-                }`
-              : `relative px-3 py-2 text-sm font-medium transition-colors ${
-                  active
-                    ? 'font-semibold text-blue-800'
-                    : 'text-gray-700 hover:text-blue-800'
-                }`
-          }
-        >
-          {link.name}
+const ServicesDropdown = ({ mobile = false, isActive, onNavigate }) => {
+  const active = isActive('/services') || serviceLinks.some(({ path }) => isActive(path))
 
-          {!mobile && active && (
-            <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-blue-800" />
-          )}
-        </Link>
-      )
-    })}
-
-    <div className={mobile ? 'mt-3 border-t border-gray-100 pt-4' : 'ml-3'}>
-      <Link
-        to="/contact"
-        onClick={onNavigate}
-        className={`inline-flex items-center justify-center gap-2 rounded-full bg-primary-base px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_22px_rgba(0,80,160,0.18)] transition-all hover:bg-primary-hover hover:shadow-[0_10px_26px_rgba(0,80,160,0.25)] active:scale-[0.98] ${
-          mobile ? 'w-full' : ''
-        }`}
+  return (
+    <details className={mobile ? 'group' : 'group relative'}>
+      <summary
+        className={
+          mobile
+            ? `flex cursor-pointer list-none items-center justify-between rounded-lg px-4 py-3 text-base font-medium transition ${
+                active
+                  ? 'bg-blue-50 font-semibold text-blue-800'
+                  : 'text-gray-700 hover:bg-gray-50 hover:text-blue-800'
+              }`
+            : `relative flex cursor-pointer list-none items-center gap-1 px-3 py-2 text-sm font-medium transition-colors ${
+                active ? 'font-semibold text-blue-800' : 'text-gray-700 hover:text-blue-800'
+              }`
+        }
       >
-        Get Started
-        <ArrowRight size={15} />
+        Services
+        <ChevronDown size={15} className="transition-transform group-open:rotate-180" />
+        {!mobile && active && (
+          <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-blue-800" />
+        )}
+      </summary>
+      <div
+        className={
+          mobile
+            ? 'ml-3 mt-1 space-y-1 border-l border-blue-100 pl-3'
+            : 'invisible absolute left-0 top-full z-50 mt-2 w-72 translate-y-1 rounded-xl border border-gray-100 bg-white p-2 opacity-0 shadow-xl shadow-slate-900/10 transition-all group-open:visible group-open:translate-y-0 group-open:opacity-100'
+        }
+      >
+        <Link
+          to="/services"
+          onClick={onNavigate}
+          className="block rounded-lg px-3 py-2.5 text-sm font-bold text-blue-800 transition hover:bg-blue-50"
+        >
+          All Services
+        </Link>
+        <div className="my-1 border-t border-gray-100" />
+        {serviceLinks.map((link) => (
+          <Link
+            key={link.path}
+            to={link.path}
+            onClick={onNavigate}
+            className={`block rounded-lg px-3 py-2.5 text-sm transition ${
+              isActive(link.path)
+                ? 'bg-blue-50 font-semibold text-blue-800'
+                : 'text-gray-700 hover:bg-gray-50 hover:text-blue-800'
+            }`}
+          >
+            {link.name}
+          </Link>
+        ))}
+      </div>
+    </details>
+  )
+}
+
+const NavigationLinks = ({ mobile = false, isActive, onNavigate }) => {
+  const renderLink = (link) => {
+    const active = isActive(link.path)
+
+    return (
+      <Link
+        key={link.path}
+        to={link.path}
+        onClick={onNavigate}
+        className={
+          mobile
+            ? `block rounded-lg px-4 py-3 text-base font-medium transition ${
+                active
+                  ? 'bg-blue-50 font-semibold text-blue-800'
+                  : 'text-gray-700 hover:bg-gray-50 hover:text-blue-800'
+              }`
+            : `relative px-3 py-2 text-sm font-medium transition-colors ${
+                active
+                  ? 'font-semibold text-blue-800'
+                  : 'text-gray-700 hover:text-blue-800'
+              }`
+        }
+      >
+        {link.name}
+        {!mobile && active && (
+          <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-blue-800" />
+        )}
       </Link>
-    </div>
-  </>
-)
+    )
+  }
+
+  return (
+    <>
+      {navLinks.slice(0, 3).map(renderLink)}
+      <ServicesDropdown mobile={mobile} isActive={isActive} onNavigate={onNavigate} />
+      {navLinks.slice(3).map(renderLink)}
+
+      <div className={mobile ? 'mt-3 border-t border-gray-100 pt-4' : 'ml-3'}>
+        <Link
+          to="/contact"
+          onClick={onNavigate}
+          className={`inline-flex items-center justify-center gap-2 rounded-full bg-primary-base px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_22px_rgba(0,80,160,0.18)] transition-all hover:bg-primary-hover hover:shadow-[0_10px_26px_rgba(0,80,160,0.25)] active:scale-[0.98] ${
+            mobile ? 'w-full' : ''
+          }`}
+        >
+          Get Started
+          <ArrowRight size={15} />
+        </Link>
+      </div>
+    </>
+  )
+}
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -97,11 +169,9 @@ const Navbar = () => {
   }, [isOpen])
 
   const isActive = (path) => {
-    if (path === '/') {
-      return location.pathname === '/'
-    }
-
-    return location.pathname === path
+    const currentPath = location.pathname.replace(/\/+$/, '') || '/'
+    const targetPath = path.replace(/\/+$/, '') || '/'
+    return currentPath === targetPath
   }
 
   const handleNavigation = () => setIsOpen(false)

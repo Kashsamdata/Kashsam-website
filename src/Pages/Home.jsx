@@ -29,6 +29,7 @@ const services = [
     description: 'Deploy custom AI models and intelligent automation to solve complex business challenges and drive operational efficiency.',
     icon: BrainCircuit,
     tag: 'AI & ML Solutions',
+    link: '/ai-enabled-process-automation',
   },
   {
     id: '02',
@@ -36,6 +37,7 @@ const services = [
     description: 'Transform raw data into predictive insights, custom dashboards, and real-time business intelligence to power confident decisions.',
     icon: BarChart3,
     tag: 'Business Intelligence',
+    link: '/data-platform-analytics',
   },
   {
     id: '03',
@@ -43,6 +45,7 @@ const services = [
     description: 'Streamline workflows and eliminate repetitive manual tasks with scalable robotic process automation (RPA) tailored to your needs.',
     icon: Workflow,
     tag: 'RPA & Workflows',
+    link: '/ai-enabled-process-automation',
   },
   {
     id: '04',
@@ -50,6 +53,7 @@ const services = [
     description: 'Build reliable, high-performance data pipelines and architecture to ensure seamless data flow and enterprise-grade integrity.',
     icon: Database,
     tag: 'Pipelines & ETL',
+    link: '/data-platform-analytics',
   },
   {
     id: '05',
@@ -57,6 +61,7 @@ const services = [
     description: 'Implement scalable cloud data warehouses and optimized modern data stacks that grow effortlessly with your business.',
     icon: CloudCog,
     tag: 'Cloud Strategy',
+    link: '/data-platform-analytics',
   },
   {
     id: '06',
@@ -64,6 +69,7 @@ const services = [
     description: 'Ensure total compliance, data quality, and secure access management across all your organizational data assets.',
     icon: ShieldCheck,
     tag: 'Security & Quality',
+    link: '/security-services',
   },
 ]
 
@@ -1347,7 +1353,7 @@ function Home() {
                   </div>
 
                   <Link
-                    to="/services"
+                    to={service.link}
                     className="inline-flex items-center justify-center gap-2 pt-2 text-sm font-bold text-blue-700 opacity-85 transition-all group-hover:translate-x-1 group-hover:opacity-100"
                   >
                     <span className="text-xs uppercase tracking-wider">Explore solution</span>

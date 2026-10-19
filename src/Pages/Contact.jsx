@@ -27,6 +27,15 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const subject = encodeURIComponent(formData.subject.trim() || 'Website enquiry')
+    const body = encodeURIComponent([
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone || 'Not provided'}`,
+      '',
+      formData.message,
+    ].join('\n'))
+    window.location.href = `mailto:Info@kashsam.com?subject=${subject}&body=${body}`
     setSubmitted(true)
   }
 
@@ -87,9 +96,9 @@ function Contact() {
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-xl shadow-blue-600/30">
                     <CheckCircle2 size={32} />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-950">Message Sent Successfully!</h3>
+                  <h3 className="text-2xl font-bold text-gray-950">Complete Your Email</h3>
                   <p className="text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to us. One of our specialists will review your details and contact you shortly.
+                    Your email app should open with your message ready. Send the email to complete your enquiry. If it did not open, contact us directly at Info@kashsam.com.
                   </p>
                   <button
                     onClick={() => {

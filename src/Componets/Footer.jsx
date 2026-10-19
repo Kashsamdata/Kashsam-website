@@ -49,7 +49,7 @@ export default function Footer() {
                         <ul className="space-y-3 text-sm">
                             <li>
                                 <Link
-                                    to="/services/data-platform-analytics"
+                                    to="/data-platform-analytics"
                                     className="text-gray-500 hover:text-blue-700 transition"
                                 >
                                     Data Platform & Analytics
@@ -58,7 +58,7 @@ export default function Footer() {
 
                             <li>
                                 <Link
-                                    to="/services/iot-connectivity-solutions"
+                                    to="/iot-connectivity-solutions"
                                     className="text-gray-500 hover:text-blue-700 transition"
                                 >
                                     IoT & Connectivity Solutions
@@ -67,7 +67,7 @@ export default function Footer() {
 
                             <li>
                                 <Link
-                                    to="/services/erp-crm-consultancy"
+                                    to="/seamless-erp-and-crm-integration"
                                     className="text-gray-500 hover:text-blue-700 transition"
                                 >
                                     ERP & CRM Consultancy
@@ -76,7 +76,7 @@ export default function Footer() {
 
                             <li>
                                 <Link
-                                    to="/services/web-delivery-implementation"
+                                    to="/web-delivery-implementation"
                                     className="text-gray-500 hover:text-blue-700 transition"
                                 >
                                     Web Delivery & Implementation
@@ -85,7 +85,7 @@ export default function Footer() {
 
                             <li>
                                 <Link
-                                    to="/services/ai-enabled-process-automation"
+                                    to="/ai-enabled-process-automation"
                                     className="text-gray-500 hover:text-blue-700 transition"
                                 >
                                     AI-Enabled Process Automation
@@ -94,7 +94,7 @@ export default function Footer() {
 
                             <li>
                                 <Link
-                                    to="/services/security-services"
+                                    to="/security-services"
                                     className="text-gray-500 hover:text-blue-700 transition"
                                 >
                                     Security Services

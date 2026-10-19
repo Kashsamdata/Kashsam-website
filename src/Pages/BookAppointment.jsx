@@ -38,6 +38,20 @@ function BookAppointment() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    const subject = encodeURIComponent(`Consultation request: ${form.service}`)
+    const body = encodeURIComponent([
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone || 'Not provided'}`,
+      `Company: ${form.company || 'Not provided'}`,
+      `Service: ${form.service}`,
+      `Preferred date: ${form.date || 'Not specified'}`,
+      `Preferred time: ${form.time || 'Not specified'}`,
+      '',
+      'Project details:',
+      form.message || 'Not provided',
+    ].join('\n'))
+    window.location.href = `mailto:Info@kashsam.com?subject=${subject}&body=${body}`
     setSubmitted(true)
   }
 
@@ -72,9 +86,9 @@ function BookAppointment() {
                 <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-600/20">
                   <CheckCircle2 size={32} />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-950">Your request has been received.</h2>
+                <h2 className="text-2xl font-bold text-gray-950">Complete Your Email Request</h2>
                 <p className="mt-3 text-gray-600">
-                  Our team will reach out to confirm the meeting details and prepare a tailored consultation for you.
+                  Your email app should open with your consultation details ready. Send the email to complete your request. If it did not open, contact us directly at Info@kashsam.com.
                 </p>
                 <button
                   type="button"

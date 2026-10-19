@@ -8,12 +8,12 @@ import Home from './Pages/Home'
 import AboutUs from './Pages/AboutUs'
 import OurTeam from './Pages/OurTeam'
 import Services from './Pages/Services'
-import ServiceDetailPage from './Componets/DataPlatformService.jsx'
 import Contact from './Pages/Contact'
 import BookAppointment from './Pages/BookAppointment'
 import Blog from './Pages/Blog'
 import Ourproducts from './Pages/Ourproducts'
 import DataPlatformService from './Componets/DataPlatformService.jsx'
+import ServiceDetail from './Pages/ServiceDetail.jsx'
 
 function App() {
   return (
@@ -30,13 +30,18 @@ function App() {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/our-team" element={<OurTeam />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/services/data-platform-analytics" element={<ServiceDetailPage />} />
-            <Route path="/services/iot-connectivity-solutions" element={<ServiceDetailPage />} />
-            <Route path="/services/erp-crm-consultancy" element={<ServiceDetailPage />} />
-            <Route path="/services/web-delivery-implementation" element={<ServiceDetailPage />} />
-            <Route path="/services/ai-enabled-process-automation" element={<ServiceDetailPage />} />
-            <Route path="/services/security-services" element={<ServiceDetailPage />} />
+            <Route path="/services/data-platform-analytics" element={<DataPlatformService />} />
+            <Route path="/services/iot-connectivity-solutions" element={<ServiceDetail serviceKey="iot-connectivity-solutions" />} />
+            <Route path="/services/erp-crm-consultancy" element={<ServiceDetail serviceKey="seamless-erp-and-crm-integration" />} />
+            <Route path="/services/web-delivery-implementation" element={<ServiceDetail serviceKey="web-delivery-implementation" />} />
+            <Route path="/services/ai-enabled-process-automation" element={<ServiceDetail serviceKey="ai-enabled-process-automation" />} />
+            <Route path="/services/security-services" element={<ServiceDetail serviceKey="security-services" />} />
             <Route path="/services/*" element={<Services />} />
+            <Route path="/iot-connectivity-solutions" element={<ServiceDetail serviceKey="iot-connectivity-solutions" />} />
+            <Route path="/seamless-erp-and-crm-integration" element={<ServiceDetail serviceKey="seamless-erp-and-crm-integration" />} />
+            <Route path="/web-delivery-implementation" element={<ServiceDetail serviceKey="web-delivery-implementation" />} />
+            <Route path="/ai-enabled-process-automation" element={<ServiceDetail serviceKey="ai-enabled-process-automation" />} />
+            <Route path="/security-services" element={<ServiceDetail serviceKey="security-services" />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/book-appointment" element={<BookAppointment />} />
             <Route path="/appointment" element={<BookAppointment />} />
