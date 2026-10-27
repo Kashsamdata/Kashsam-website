@@ -14,7 +14,6 @@ const navLinks = [
   { name: 'About Us', path: '/about-us' },
   { name: 'Our Team', path: '/our-team' },
   { name: 'Blog', path: '/blog' },
-  { name: 'Our Products', path: '/our-products' },
 ]
 
 const serviceLinks = [
@@ -28,6 +27,10 @@ const serviceLinks = [
 
 const ServicesDropdown = ({ mobile = false, isActive, onNavigate }) => {
   const active = isActive('/services') || serviceLinks.some(({ path }) => isActive(path))
+  const closeDropdown = (event) => {
+    event.currentTarget.closest('details')?.removeAttribute('open')
+    onNavigate?.()
+  }
 
   return (
     <details className={mobile ? 'group' : 'group relative'}>
@@ -59,7 +62,7 @@ const ServicesDropdown = ({ mobile = false, isActive, onNavigate }) => {
       >
         <Link
           to="/services"
-          onClick={onNavigate}
+          onClick={closeDropdown}
           className="block rounded-lg px-3 py-2.5 text-sm font-bold text-blue-800 transition hover:bg-blue-50"
         >
           All Services
@@ -69,7 +72,7 @@ const ServicesDropdown = ({ mobile = false, isActive, onNavigate }) => {
           <Link
             key={link.path}
             to={link.path}
-            onClick={onNavigate}
+            onClick={closeDropdown}
             className={`block rounded-lg px-3 py-2.5 text-sm transition ${
               isActive(link.path)
                 ? 'bg-blue-50 font-semibold text-blue-800'

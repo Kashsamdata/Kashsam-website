@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 
 import Navbar from './Componets/Navbar.jsx'
 import Footer from './Componets/Footer.jsx'
@@ -15,15 +15,17 @@ import Ourproducts from './Pages/Ourproducts'
 import DataPlatformService from './Componets/DataPlatformService.jsx'
 import ServiceDetail from './Pages/ServiceDetail.jsx'
 
-function App() {
+function AppLayout() {
+  const location = useLocation()
+
   return (
-    <Router>
-      <div className="min-h-screen bg-brand-bg text-brand-text-main">
+    <div className="min-h-screen bg-brand-bg text-brand-text-main">
 
-        <Navbar />
+      <Navbar />
 
-        <main className="w-full">
-          <Routes>
+      <main className="w-full">
+        <div key={`${location.pathname}${location.search}`} className="route-transition">
+          <Routes location={location}>
 
             {/* Main Pages */}
             <Route path="/" element={<Home />} />
@@ -75,11 +77,19 @@ function App() {
             />
 
           </Routes>
-        </main>
+        </div>
+      </main>
 
-        <Footer />
+      <Footer />
 
-      </div>
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <AppLayout />
     </Router>
   )
 }

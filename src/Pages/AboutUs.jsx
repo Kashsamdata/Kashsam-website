@@ -159,20 +159,20 @@ export default function AboutUs() {
       {/* Purpose and values */}
       <section id="our-approach" className="py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.82fr_1.18fr] lg:gap-20 lg:px-10">
-          <div className="relative overflow-hidden rounded-[2rem] bg-[#163e39] p-7 text-white sm:p-10 lg:min-h-[450px]">
-            <div className="absolute -bottom-20 -right-16 h-64 w-64 rounded-full border-[35px] border-white/[.06]" />
-            <div className="absolute -bottom-10 -right-6 h-40 w-40 rounded-full border border-sky-100/15" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-[#e5e8e2] bg-[#fbfaf7] p-7 text-[#172b2b] sm:p-10 lg:min-h-[450px]">
+            <div className="absolute -bottom-20 -right-16 h-64 w-64 rounded-full border-[35px] border-sky-900/[.04]" />
+            <div className="absolute -bottom-10 -right-6 h-40 w-40 rounded-full border border-sky-900/[.08]" />
             <div className="relative z-10 flex h-full flex-col">
-              <Eyebrow light>Why we exist</Eyebrow>
+              <Eyebrow>Why we exist</Eyebrow>
               <h2 className="max-w-md text-3xl font-bold leading-tight tracking-tight sm:text-4xl">Make technology work harder for people and businesses.</h2>
-              <p className="mt-5 max-w-md text-sm font-medium leading-7 text-sky-50/75">
+              <p className="mt-5 max-w-md text-sm font-medium leading-7 text-[#667570]">
                 We aim to bring executive expertise, data strategy, and practical execution together—helping enterprises turn complex systems into a meaningful business advantage.
               </p>
               <div className="mt-auto pt-10">
-                <div className="mb-4 h-px w-full bg-white/15" />
+                <div className="mb-4 h-px w-full bg-[#dfe5df]" />
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#d3e8dd] text-[#163e39]"><Target size={20} /></div>
-                  <div><p className="text-sm font-bold">Purpose-led transformation</p><p className="mt-1 text-xs font-medium text-sky-50/65">Clear direction. Thoughtful execution.</p></div>
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#e0f2fe] text-[#0284c7]"><Target size={20} /></div>
+                  <div><p className="text-sm font-bold">Purpose-led transformation</p><p className="mt-1 text-xs font-medium text-[#687772]">Clear direction. Thoughtful execution.</p></div>
                 </div>
               </div>
             </div>

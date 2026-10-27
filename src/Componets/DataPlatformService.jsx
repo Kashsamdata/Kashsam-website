@@ -59,15 +59,6 @@ const outcomes = [
 export default function DataPlatformAnalytics() {
   return (
     <main className="overflow-hidden bg-[#FAFAF8] text-slate-900 font-sans">
-      {/* Import Google Font: Plus Jakarta Sans */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-        
-        body, main {
-          font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-      `}</style>
-
       {/* Hero section */}
       <section className="relative isolate">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_left,_rgba(186,230,253,0.55),transparent_48%),linear-gradient(135deg,#fcfdfd_0%,#f1f8fe_55%,#ffffff_100%)]" />
@@ -94,7 +85,7 @@ export default function DataPlatformAnalytics() {
             {/* CTAs */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                to="/contact-us/"
+                to="/contact"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl bg-[#0284C7] px-7 py-4 text-sm font-bold text-white shadow-lg shadow-sky-600/20 transition hover:-translate-y-0.5 hover:bg-[#0369A1]"
               >
                 Talk to our team <ArrowRight size={17} />
@@ -194,7 +185,7 @@ export default function DataPlatformAnalytics() {
               <h2 className="mt-4 max-w-2xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Need A Consultation?</h2>
               <p className="mt-4 max-w-2xl font-medium leading-relaxed text-slate-300">Let’s discuss how a connected data platform and clearer reporting can support your business goals.</p>
             </div>
-            <Link to="/contact-us/" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-sky-400 px-7 py-4 font-bold text-slate-950 transition hover:bg-sky-300">
+            <Link to="/contact" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-sky-400 px-7 py-4 font-bold text-slate-950 transition hover:bg-sky-300">
               Contact us <ArrowUpRight size={19} />
             </Link>
           </div>

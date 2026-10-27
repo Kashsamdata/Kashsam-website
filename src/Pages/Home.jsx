@@ -504,9 +504,16 @@ export default function Home() {
                 New — From Kashsam
               </div>
 
-              <h2 className="text-3xl font-bold leading-[1.12] tracking-[-0.035em] text-slate-950 sm:text-4xl lg:text-5xl">
-                Meet <span className="font-extrabold text-[#0284C7]">KashAssist</span>
-              </h2>
+              <div className="flex flex-wrap items-center gap-4">
+                <img
+                  src="/images/kashassist-logo.png"
+                  alt="KashAssist logo"
+                  className="h-20 w-24 object-contain sm:h-24 sm:w-28"
+                />
+                <h2 className="text-3xl font-bold leading-[1.12] tracking-[-0.035em] text-slate-950 sm:text-4xl lg:text-5xl">
+                  Meet <span className="font-extrabold text-[#0284C7]">KashAssist</span>
+                </h2>
+              </div>
               <p className="mt-2 text-xl font-bold tracking-tight text-slate-800 sm:text-2xl">
                 AI assistants for Bharat
               </p>
@@ -554,6 +561,13 @@ export default function Home() {
               </div>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Link
+                  to="/our-products"
+                  className="inline-flex items-center justify-center gap-3 rounded-2xl border border-sky-200 bg-white px-7 py-4 text-sm font-bold text-sky-800 transition hover:-translate-y-0.5 hover:border-sky-300 hover:bg-sky-50"
+                >
+                  Learn more
+                  <ArrowUpRight size={17} />
+                </Link>
                 <a
                   href="https://wa.me/"
                   target="_blank"
