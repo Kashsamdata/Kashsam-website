@@ -5,22 +5,25 @@ import {
   ArrowUpRight,
   Database,
   CheckCircle2,
-  MessageCircle,
   Sparkles,
   Cpu,
-  Wifi,
   ShieldCheck,
-  Globe2,
   BarChart3,
   BrainCircuit,
   Workflow,
   CloudCog,
+  Eye,
+  Target,
+  Compass,
+  Globe2,
   ReceiptText,
   GraduationCap,
-  BatteryFull,
+  Languages,
+  Zap,
+  MessageSquare,
+  Award,
+  Layers,
 } from 'lucide-react'
-import analyticsImage from '../assets/img1-scaled.jpg'
-import CoreValuesInfographic from '../Componets/CoreValuesInfographic.jsx'
 
 const services = [
   {
@@ -105,13 +108,56 @@ const partnerLogos = [
   { name: 'Tech Bridge', src: 'https://kashsam.ai/wp-content/uploads/2026/06/Tech-Bridge.png' },
 ]
 
+const coreValues = [
+  {
+    id: '01',
+    title: 'Data Transformation',
+    subtitle: 'TURNING DATA INTO OPPORTUNITY',
+    description: 'Helping businesses operate smarter, make informed decisions, and achieve measurable impact.',
+    icon: BrainCircuit,
+    isHighlight: false,
+  },
+  {
+    id: '02',
+    title: 'Artificial Intelligence',
+    subtitle: 'AI & MACHINE LEARNING',
+    description: 'Deploying practical AI models and intelligent capabilities to automate complex processes.',
+    icon: BrainCircuit,
+    isHighlight: false,
+  },
+  {
+    id: '03',
+    title: 'Analytics & Automation',
+    subtitle: 'SMARTER OPERATIONS',
+    description: 'Transforming complex datasets into clear, actionable business metrics and streamlined workflows.',
+    icon: Layers,
+    isHighlight: false,
+  },
+  {
+    id: '04',
+    title: 'Data Engineering',
+    subtitle: 'SCALABLE INFRASTRUCTURE',
+    description: 'Building high-integrity data pipelines and storage foundations that scale seamlessly.',
+    icon: Database,
+    isHighlight: false,
+  },
+  {
+    id: '05',
+    title: 'Proven Growth',
+    subtitle: '4+ YEARS EXPERTISE',
+    description: 'Proven track record driving data-led innovation and measurable growth for leading brands.',
+    icon: Award,
+    isHighlight: true,
+  },
+]
+
 const bgImages = [
   'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1920&auto=format&fit=crop',
 ]
 
-function Home() {
+export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const homeRef = useRef(null)
 
@@ -154,7 +200,62 @@ function Home() {
   }, [])
 
   return (
-    <div ref={homeRef} className="home-page overflow-hidden bg-white text-gray-900 selection:bg-blue-600 selection:text-white">
+    <div ref={homeRef} className="home-page overflow-hidden bg-[#FAFAF8] text-slate-900 font-sans antialiased selection:bg-blue-600 selection:text-white">
+      {/* Google Font & Animation Keyframes */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+
+        @keyframes marquee-reverse {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0%); }
+        }
+
+        .animate-marquee {
+          display: flex;
+          width: max-content;
+          animation: marquee 35s linear infinite;
+        }
+
+        .animate-marquee-reverse {
+          display: flex;
+          width: max-content;
+          animation: marquee-reverse 35s linear infinite;
+        }
+
+        .animate-marquee:hover, .animate-marquee-reverse:hover {
+          animation-play-state: paused;
+        }
+
+        @keyframes home-section-pop {
+          from { opacity: 0.7; transform: translateY(24px) scale(0.99); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes home-content-pop {
+          from { opacity: 0; transform: translateY(22px) scale(0.98); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .home-page > .home-section-visible {
+          animation: home-section-pop 650ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        }
+
+        .home-page .home-content-visible {
+          animation: home-content-pop 600ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms) both;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .home-page > .home-section-visible,
+          .home-page .home-content-visible {
+            animation: none;
+          }
+        }
+      `}</style>
+
+      {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden border-b border-gray-100 text-white">
         <div className="absolute inset-0 z-0">
           {bgImages.map((img, idx) => (
@@ -168,46 +269,46 @@ function Home() {
           ))}
         </div>
 
-        <div className="absolute inset-0 z-0 bg-gradient-to-r from-slate-950/80 via-slate-900/60 to-slate-900/30" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-r from-slate-950/85 via-slate-900/65 to-slate-900/35" />
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.35),transparent_30%),radial-gradient(circle_at_bottom_left,_rgba(14,165,233,0.2),transparent_35%)]" />
 
         <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold text-blue-100 shadow-lg backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-100 shadow-lg backdrop-blur-sm">
               <Sparkles size={14} className="text-blue-300 animate-pulse" />
-              <span>Next-Gen Enterprise Data & AI Solutions</span>
+              <span>Next-Gen Enterprise Data &amp; AI Solutions</span>
             </div>
 
             <div className="space-y-2">
-              <span className="block text-sm sm:text-base font-extrabold tracking-[0.25em] uppercase text-blue-200">
+              <span className="block text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase text-blue-200">
                 WE PROVIDE
               </span>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
-                DATA <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">SOLUTIONS</span>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-[-0.035em] text-white leading-[1.08]">
+                DATA <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">SOLUTIONS</span>
               </h1>
             </div>
 
-            <p className="max-w-2xl text-base sm:text-lg font-normal leading-relaxed text-white/90 mx-auto lg:mx-0">
+            <p className="max-w-2xl text-base sm:text-lg font-medium leading-relaxed text-white/95 mx-auto lg:mx-0">
               Our main focus is on providing Organizations data-driven decision-making eco-system and digital transformation.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <Link
                 to="/services"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-8 py-4 rounded-xl shadow-lg shadow-blue-600/30 transition-all hover:-translate-y-0.5 active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#0284C7] hover:bg-[#0369A1] text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-8 py-4 rounded-2xl shadow-lg shadow-sky-600/30 transition-all hover:-translate-y-0.5 active:scale-95"
               >
                 <span>OUR SERVICES</span>
                 <ArrowRight size={16} />
               </Link>
               <Link
                 to="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 font-bold text-xs sm:text-sm uppercase tracking-wider px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5 active:scale-95 shadow-md backdrop-blur-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 font-bold text-xs sm:text-sm uppercase tracking-wider px-8 py-4 rounded-2xl transition-all hover:-translate-y-0.5 active:scale-95 shadow-md backdrop-blur-sm"
               >
                 <span>GET IN TOUCH</span>
               </Link>
             </div>
 
-            <div className="pt-6 border-t border-white/20 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-white/85 font-medium">
+            <div className="pt-6 border-t border-white/20 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-white/90 font-semibold">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck size={16} className="text-blue-300" /> Enterprise Grade
               </span>
@@ -228,7 +329,7 @@ function Home() {
               type="button"
               onClick={() => setCurrentSlide(idx)}
               className={`h-3 rounded-full transition-all ${
-                idx === currentSlide ? 'bg-blue-600 w-6' : 'bg-gray-300 w-3 hover:bg-gray-400'
+                idx === currentSlide ? 'bg-[#0284C7] w-6' : 'bg-gray-300 w-3 hover:bg-gray-400'
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
@@ -236,1129 +337,413 @@ function Home() {
         </div>
       </section>
 
-      <section className="ks-about">
-        <div className="ks-about-pattern" />
-        <div className="ks-about-container">
-          <div className="ks-about-visual">
-            <div className="ks-visual-label">
-              <span className="ks-live-dot" />
-              GLOBAL EXPERTISE
-            </div>
-
-            <div className="ks-orbit ks-orbit-one" />
-            <div className="ks-orbit ks-orbit-two" />
-
-            <div className="ks-visual-center">
-              <div className="ks-center-glow" />
-              <div className="ks-center-icon">
-                <Database size={42} />
-              </div>
-              <span>SMART</span>
-              <strong>INTELLIGENCE</strong>
-            </div>
-
-            <div className="ks-tech-card ks-card-data">
-              <div className="ks-tech-icon">
-                <BarChart3 size={18} />
-              </div>
-              <div>
-                <span>DATA</span>
-                <strong>Decision Engine</strong>
-              </div>
-            </div>
-
-            <div className="ks-tech-card ks-card-ai">
-              <div className="ks-tech-icon">
-                <Cpu size={18} />
-              </div>
-              <div>
-                <span>AI</span>
-                <strong>Automation Layer</strong>
-              </div>
-            </div>
-
-            <div className="ks-tech-card ks-card-network">
-              <div className="ks-tech-icon">
-                <Globe2 size={18} />
-              </div>
-              <div>
-                <span>NETWORK</span>
-                <strong>Global Reach</strong>
-              </div>
-            </div>
-
-            <div className="ks-mini-preview">
-              <img src={analyticsImage} alt="Business analytics popup" />
-              <div className="ks-mini-label">
-                <strong>Insights</strong>
-                <span>Data-first strategy for smarter growth.</span>
-              </div>
-            </div>
-
-            <div className="ks-visual-caption">
-              <span className="ks-caption-line" />
-              Helping organizations turn complex data into clearer, smarter action.
-            </div>
-          </div>
-
-          <div className="ks-about-content">
-            <div className="ks-about-heading">
-              <div className="ks-hexagon">
-                <span>WHO</span>
-                <strong>WE ARE</strong>
-              </div>
-              <div className="ks-small-hex" />
-            </div>
-
-            <div className="ks-eyebrow">WHO WE ARE</div>
-            <h2>Data Platform &amp; Analytics</h2>
-            <p className="ks-about-intro">
-              <strong>Kashsam Data Solution</strong> is a global organization of experts in digital consulting, AI, data engineering, and automation.
-            </p>
-            <p className="ks-about-description">
-              With operations across India, South East Asia, the UK, UAE, and US, we design and deliver data-driven transformation that helps organizations operate smarter and faster.
-            </p>
-
-            <div className="ks-about-divider" />
-
-            <div className="ks-about-bottom">
-              <div className="ks-about-value">
-                <div className="ks-value-number">01</div>
-                <div>
-                  <h3>Purpose-Driven Impact</h3>
-                  <p>Helping businesses enhance efficiency, accelerate growth, and achieve measurable success through technology.</p>
-                </div>
-              </div>
-
-              <div className="ks-about-value">
-                <div className="ks-value-number">02</div>
-                <div>
-                  <h3>Data-Driven Transformation</h3>
-                  <p>We design and deliver innovative, data-led solutions that empower organizations to operate smarter and faster.</p>
-                </div>
-              </div>
-
-              <div className="ks-about-value">
-                <div className="ks-value-number">03</div>
-                <div>
-                  <h3>Global Expertise</h3>
-                  <p>A worldwide team of specialists in digital consulting, AI, data engineering, and automation.</p>
-                </div>
-              </div>
-            </div>
-
-            <p className="ks-about-purpose">
-              Our purpose is simple — to turn data into opportunity and technology into progress.
-            </p>
-
-            <a href="/about-us" className="ks-about-button">
-              Learn More
-            </a>
-          </div>
-        </div>
-
-        <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
-          @keyframes home-section-pop {
-            from { opacity: 0.7; transform: translateY(24px) scale(0.99); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-          }
-
-          @keyframes home-content-pop {
-            from { opacity: 0; transform: translateY(22px) scale(0.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-          }
-
-          .home-page > .home-section-visible {
-            animation: home-section-pop 650ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
-          }
-
-          .home-page .home-content-visible {
-            animation: home-content-pop 600ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms) both;
-          }
-
-          @media (prefers-reduced-motion: reduce) {
-            .home-page > .home-section-visible,
-            .home-page .home-content-visible {
-              animation: none;
-            }
-          }
-
-          .ks-about {
-            --ks-green: #2563eb;
-            --ks-green-dark: #1d4ed8;
-            --ks-ink: #111827;
-            --ks-muted: #4b5563;
-            position: relative;
-            isolation: isolate;
-            overflow: hidden;
-            padding: 86px 6.5% 24px;
-            background: #f3f6fb;
-            color: var(--ks-ink);
-            font-family: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif;
-            border-radius: 0 0 22px 22px;
-          }
-
-          .ks-about-pattern {
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.45;
-            background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px);
-            background-size: 15px 15px;
-            mask-image: linear-gradient(90deg, black, transparent 48%, black);
-          }
-
-          .ks-about-container {
-            max-width: 1320px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-            align-items: center;
-            gap: clamp(42px, 7vw, 105px);
-          }
-
-          .ks-about-visual {
-            position: relative;
-            min-height: 550px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-
-          .ks-visual-label {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #475569;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 2px;
-          }
-
-          .ks-live-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #2563eb;
-            box-shadow: 0 0 0 5px #2563eb1c;
-          }
-
-          .ks-orbit {
-            position: absolute;
-            width: 390px;
-            height: 390px;
-            border: 1px solid #2563eb30;
-            border-radius: 50%;
-          }
-
-          .ks-orbit-one { transform: rotateX(62deg) rotate(-28deg); }
-          .ks-orbit-two {
-            width: 300px;
-            height: 300px;
-            transform: rotateX(62deg) rotate(35deg);
-          }
-
-          .ks-visual-center {
-            position: relative;
-            z-index: 2;
-            width: 240px;
-            height: 240px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #ffffff, #e8efff);
-            border: 1px solid #ffffff;
-            box-shadow: 0 25px 65px #1e3a8a1c, inset 0 0 30px #2563eb0d;
-          }
-
-          .ks-center-glow {
-            position: absolute;
-            inset: 25px;
-            border: 1px dashed #2563eb55;
-            border-radius: 50%;
-          }
-
-          .ks-center-icon {
-            display: grid;
-            place-items: center;
-            width: 100px;
-            height: 100px;
-            border-radius: 30px;
-            color: white;
-            background: linear-gradient(145deg, #3b82f6, #1d4ed8);
-            box-shadow: 0 14px 30px #2563eb35;
-            transform: rotate(-5deg);
-          }
-
-          .ks-center-icon svg { transform: rotate(5deg); }
-
-          .ks-visual-center > span {
-            margin-top: 8px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #475569;
-          }
-
-          .ks-visual-center > strong {
-            font-family: inherit;
-            font-size: 17px;
-            letter-spacing: 1px;
-          }
-
-          .ks-tech-card {
-            position: absolute;
-            z-index: 3;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 13px 17px;
-            min-width: 205px;
-            border: 1px solid #ffffff;
-            border-radius: 13px;
-            background: #ffffffed;
-            box-shadow: 0 12px 35px #263b3212;
-          }
-
-          .ks-tech-card > div:last-child {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-          }
-
-          .ks-tech-icon {
-            display: grid;
-            place-items: center;
-            flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: #eff6ff;
-            color: var(--ks-green);
-          }
-
-          .ks-tech-card span {
-            color: #64748b;
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 1px;
-          }
-
-          .ks-tech-card strong {
-            color: #1f2937;
-            font-size: 13px;
-            font-weight: 700;
-          }
-
-          .ks-card-data { top: 19%; left: 0; }
-          .ks-card-ai { top: 42%; right: -3%; }
-          .ks-card-network { bottom: 16%; left: 5%; }
-
-          .ks-mini-preview {
-            position: absolute;
-            right: -14px;
-            bottom: 52px;
-            width: 192px;
-            border: 1px solid #ffffff;
-            border-radius: 18px;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 20px 50px rgba(30, 58, 138, 0.14);
-            padding: 10px;
-            overflow: hidden;
-          }
-
-          .ks-mini-preview img {
-            display: block;
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 12px;
-          }
-
-          .ks-mini-label {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            padding: 10px 4px 2px;
-          }
-
-          .ks-mini-label strong {
-            color: var(--ks-green);
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-          }
-
-          .ks-mini-label span {
-            color: #475569;
-            font-size: 12px;
-            line-height: 1.6;
-          }
-
-          .ks-visual-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            max-width: 310px;
-            color: #475569;
-            font-size: 12px;
-            line-height: 1.7;
-          }
-
-          .ks-caption-line {
-            width: 30px;
-            height: 2px;
-            flex-shrink: 0;
-            background: var(--ks-green);
-          }
-
-          .ks-about-content {
-            position: relative;
-            padding: 8px 0 20px;
-          }
-
-          .ks-about-heading {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 35px;
-          }
-
-          .ks-hexagon {
-            width: 145px;
-            height: 132px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            background: linear-gradient(135deg, #60a5fa, #1d4ed8);
-            clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
-          }
-
-          .ks-hexagon span { font-size: 17px; letter-spacing: 2px; }
-          .ks-hexagon strong {
-            font-family: inherit;
-            font-size: 19px;
-            font-weight: 800;
-          }
-
-          .ks-small-hex {
-            width: 46px;
-            height: 42px;
-            background: #2563eb;
-            clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
-          }
-
-          .ks-eyebrow {
-            color: var(--ks-green);
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 2.2px;
-          }
-
-          .ks-about-content h2 {
-            max-width: 560px;
-            margin: 15px 0 22px;
-            font-family: inherit;
-            font-size: clamp(32px, 3.4vw, 48px);
-            font-weight: 800;
-            letter-spacing: -2px;
-            line-height: 1.17;
-          }
-
-          .ks-about-content h2 span {
-            display: block;
-            color: var(--ks-green);
-          }
-
-          .ks-about-intro {
-            max-width: 520px;
-            margin: 0 0 18px;
-            color: #374151;
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.9;
-          }
-
-          .ks-about-description {
-            max-width: 560px;
-            margin: 0;
-            color: var(--ks-muted);
-            font-size: 14px;
-            line-height: 2;
-          }
-
-          .ks-about-divider {
-            height: 1px;
-            margin: 28px 0;
-            background: #d7dfeb;
-          }
-
-          .ks-about-bottom {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-          }
-
-          .ks-about-value {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-          }
-
-          .ks-value-number {
-            display: grid;
-            place-items: center;
-            width: 32px;
-            height: 32px;
-            flex-shrink: 0;
-            border-radius: 9px;
-            background: #dbeafe;
-            color: var(--ks-green-dark);
-            font-size: 11px;
-            font-weight: 700;
-          }
-
-          .ks-about-value h3 {
-            margin: 2px 0 7px;
-            font-family: inherit;
-            font-size: 14px;
-            font-weight: 800;
-          }
-
-          .ks-about-value p {
-            margin: 0;
-            color: #4b5563;
-            font-size: 12px;
-            line-height: 1.7;
-          }
-
-          .ks-about-purpose {
-            margin: 24px 0 0;
-            padding-left: 14px;
-            border-left: 3px solid var(--ks-green);
-            color: #1f2937;
-            font-size: 14px;
-            font-weight: 700;
-            line-height: 1.7;
-          }
-
-          .ks-about-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 30px;
-            padding: 14px 20px;
-            border: 1px solid var(--ks-green);
-            border-radius: 5px;
-            background: var(--ks-green);
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: background 0.25s ease, transform 0.25s ease;
-          }
-
-          .ks-about-button:hover {
-            background: var(--ks-green-dark);
-            transform: translateY(-2px);
-          }
-
-          @media (max-width: 1050px) {
-            .ks-about { padding: 65px 5% 22px; }
-            .ks-about-container { grid-template-columns: 1fr 1fr; gap: 35px; }
-            .ks-about-visual { min-height: 480px; }
-            .ks-orbit { width: 300px; height: 300px; }
-            .ks-orbit-two { width: 235px; height: 235px; }
-            .ks-visual-center { width: 195px; height: 195px; }
-            .ks-center-icon { width: 78px; height: 78px; }
-            .ks-tech-card { min-width: 175px; padding: 10px; }
-            .ks-card-ai { right: -5%; }
-            .ks-about-content h2 { font-size: 36px; }
-          }
-
-          @media (max-width: 760px) {
-            .ks-about { padding: 55px 22px 22px; }
-            .ks-about-container { grid-template-columns: 1fr; gap: 55px; }
-            .ks-about-visual {
-              min-height: 450px;
-              max-width: 520px;
-              width: 100%;
-              margin: 0 auto;
-            }
-            .ks-about-content { padding-top: 0; }
-            .ks-about-heading { margin-bottom: 28px; }
-            .ks-about-content h2 { font-size: clamp(34px, 8vw, 44px); }
-            .ks-about-intro { font-size: 15px; }
-            .ks-about-description { font-size: 13px; }
-          }
-
-          @media (max-width: 420px) {
-            .ks-about-visual { min-height: 395px; }
-            .ks-orbit { width: 255px; height: 255px; }
-            .ks-orbit-two { width: 205px; height: 205px; }
-            .ks-visual-center { width: 165px; height: 165px; }
-            .ks-center-icon { width: 66px; height: 66px; }
-            .ks-center-icon svg { width: 48px; }
-            .ks-tech-card { min-width: 155px; gap: 8px; padding: 9px; }
-            .ks-tech-icon { width: 32px; height: 32px; }
-            .ks-tech-card strong { font-size: 11px; }
-            .ks-tech-card span { font-size: 8px; }
-            .ks-card-data { top: 16%; }
-            .ks-card-ai { top: 43%; right: -2%; }
-            .ks-card-network { bottom: 15%; left: 0; }
-            .ks-about-bottom { gap: 16px; }
-          }
-
-          @media (prefers-reduced-motion: reduce) {
-            .ks-about-button { transition: none; }
-          }
-        `}</style>
-      </section>
-
-      <section className="mv-home-section relative overflow-hidden bg-white py-20 sm:py-24">
+      {/* Who We Are Section */}
+      <section className="relative isolate overflow-hidden bg-[#f5f8fd] text-slate-900 py-16 sm:py-24">
+        <div className="pointer-events-none absolute -right-24 -top-36 h-96 w-96 rounded-full bg-blue-100/70 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-40 -left-20 h-80 w-80 rounded-full bg-emerald-100/50 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-          <div className="mv-home-heading">
-            <p>Guiding Principles</p>
-            <span>
-              The purpose and commitment behind the data and technology
-              solutions we deliver.
-            </span>
-          </div>
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
+            <div>
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/90 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-blue-900 shadow-sm">
+                <Sparkles size={14} className="text-blue-600" />
+                Who We Are
+              </div>
+              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#0284C7]">
+                Data Platform &amp; Analytics
+              </p>
+              <h2 className="mt-3 text-3xl font-bold leading-[1.12] tracking-[-0.035em] text-slate-950 sm:text-4xl lg:text-5xl">
+                Turning data into opportunity. <span className="mt-1 block font-extrabold text-[#0284C7]">Technology into progress.</span>
+              </h2>
+              <p className="mt-5 text-base font-medium leading-relaxed text-slate-700 sm:text-lg">
+                <strong className="font-bold text-slate-950">Kashsam Data Solution</strong> is a global organization of experts in digital consulting, AI, data engineering, and automation.
+              </p>
+              <p className="mt-4 text-base font-medium leading-relaxed text-slate-600">
+                With operations across India, South East Asia, UK, UAE, and US, we design and deliver data-driven transformation that helps organizations operate smarter and faster. Our purpose is simple – to turn data into opportunity and technology into progress.
+              </p>
 
-          <div className="mv-home-image">
-            <div className="mv-home-image-ring">
-              <img
-                src={analyticsImage}
-                alt="Kashsam team collaborating on data and technology solutions"
-                className="h-full w-full rounded-full object-cover"
-                loading="lazy"
-              />
+              {/* Location Pills */}
+              <div className="mt-6 flex flex-wrap gap-2">
+                {['India', 'South East Asia', 'UK', 'UAE', 'US'].map((region) => (
+                  <span key={region} className="inline-flex items-center gap-1.5 rounded-full border border-sky-100 bg-white px-3.5 py-1.5 text-xs font-semibold text-sky-900 shadow-xs">
+                    <Globe2 size={13} className="text-[#0284C7]" /> {region}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                <Link
+                  to="/about-us"
+                  className="inline-flex items-center gap-3 rounded-2xl bg-[#0284C7] px-6 py-4 text-sm font-bold text-white shadow-lg shadow-sky-600/20 transition hover:-translate-y-0.5 hover:bg-[#0369A1]"
+                >
+                  Discover our story
+                  <ArrowUpRight size={17} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Visual Image Block */}
+            <div className="relative mx-auto w-full max-w-2xl lg:ml-auto">
+              <div className="absolute -inset-4 rounded-[2.5rem] bg-sky-200/50 blur-2xl" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-white p-2.5 shadow-2xl shadow-sky-950/10">
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=85&fit=crop&auto=format"
+                  alt="Kashsam Data Solution global experts working together"
+                  className="h-[340px] w-full rounded-[1.5rem] object-cover sm:h-[420px] lg:h-[480px]"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="mv-home-layout">
-            <div className="mv-home-row mv-home-vision">
-              <div className="mv-home-description mv-home-vision-description">
-                <h3>Vision</h3>
-                <h4>Empowering Data-Driven Success</h4>
-                <p>
-                  To enable businesses through our products and services to
-                  produce, utilize, and monetize data, strengthening both their
-                  operations and data ecosystems – creating powerful network
-                  effects that drive sustainable growth.
-                </p>
-              </div>
-              <div className="mv-home-marker mv-home-vision-marker">
-                <div className="mv-home-number mv-home-vision-number">01</div>
-                <div className="mv-home-icon mv-home-vision-icon" aria-hidden="true">
-                  <span>◎</span>
-                </div>
-              </div>
-            </div>
+          {/* Cards Block */}
+          <div className="mx-auto mt-14 grid max-w-6xl overflow-hidden rounded-[1.75rem] border border-blue-100 bg-white/90 shadow-[0_14px_40px_rgba(15,35,70,0.06)] md:grid-cols-3 md:divide-x md:divide-slate-200">
+            <article className="p-6 sm:p-8">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#0284C7]">01 <span className="ml-2 text-slate-500 font-semibold">Impact</span></p>
+              <h3 className="mt-3 text-lg font-bold text-slate-950 sm:text-xl">Purpose-Driven Impact</h3>
+              <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">
+                Helping businesses enhance efficiency, accelerate growth, and achieve measurable success through technology.
+              </p>
+            </article>
 
-            <div className="mv-home-row mv-home-mission">
-              <div className="mv-home-marker mv-home-mission-marker">
-                <div className="mv-home-number mv-home-mission-number">02</div>
-                <div className="mv-home-icon mv-home-mission-icon" aria-hidden="true">
-                  <span>✳</span>
-                </div>
-              </div>
-              <div className="mv-home-description mv-home-mission-description">
-                <h3>Mission</h3>
-                <h4>Innovation. Insight. Impact.</h4>
-                <p>
-                  To drive digital transformation by merging data and knowledge –
-                  empowering organizations to achieve operational excellence,
-                  process improvement, and enhanced customer experiences through
-                  intelligent and secure systems.
-                </p>
-              </div>
-            </div>
+            <article className="border-t border-slate-200 p-6 sm:p-8 md:border-t-0">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-700">02 <span className="ml-2 text-slate-500 font-semibold">Methodology</span></p>
+              <h3 className="mt-3 text-lg font-bold text-slate-950 sm:text-xl">Data-Driven Transformation</h3>
+              <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">
+                We design and deliver innovative, data-led solutions that empower organizations to operate smarter and faster.
+              </p>
+            </article>
+
+            <article className="border-t border-slate-200 p-6 sm:p-8 md:border-t-0">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">03 <span className="ml-2 text-slate-500 font-semibold">Reach</span></p>
+              <h3 className="mt-3 text-lg font-bold text-slate-950 sm:text-xl">Global Expertise</h3>
+              <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">
+                A worldwide team of specialists in digital consulting, AI, data engineering, and automation.
+              </p>
+            </article>
           </div>
         </div>
-
-        <style>{`
-          .mv-home-section {
-            color: #1f2937;
-          }
-
-          .mv-home-heading {
-            position: relative;
-            z-index: 1;
-            max-width: 760px;
-            min-height: 150px;
-            padding: 4px 280px 0 0;
-          }
-
-          .mv-home-heading p {
-            margin: 0 0 12px;
-            color: #2563eb;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-          }
-
-          .mv-home-heading h2 {
-            margin: 0;
-            color: #111827;
-            font-size: clamp(30px, 4vw, 46px);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            line-height: 1.15;
-          }
-
-          .mv-home-heading span {
-            display: block;
-            margin-top: 12px;
-            color: #64748b;
-            font-size: 14px;
-            line-height: 1.7;
-          }
-
-          .mv-home-layout {
-            max-width: 1250px;
-            margin: 0 auto;
-            padding-top: 20px;
-          }
-
-          .mv-home-image {
-            position: absolute;
-            top: -8px;
-            right: 0;
-            z-index: 2;
-            width: 230px;
-            height: 230px;
-          }
-
-          .mv-home-image-ring {
-            width: 100%;
-            height: 100%;
-            padding: 9px;
-            border: 1px solid #d7e0eb;
-            border-radius: 50%;
-            background: white;
-            box-shadow: inset 0 0 0 7px white, 0 0 0 6px #2563eb;
-          }
-
-          .mv-home-row {
-            position: relative;
-            display: flex;
-            align-items: center;
-            min-height: 250px;
-          }
-
-          .mv-home-vision { justify-content: flex-start; }
-          .mv-home-mission { justify-content: flex-end; margin-top: -2px; }
-
-          .mv-home-description {
-            position: relative;
-            z-index: 2;
-            width: 50%;
-            min-height: 144px;
-            padding: 24px 38px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: white;
-            border: 1px solid #d1d5db;
-            box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
-          }
-
-          .mv-home-description h3 {
-            margin: 0 0 8px;
-            color: #111827;
-            font-size: 14px;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #2563eb;
-          }
-
-          .mv-home-description h4 {
-            margin: 0 0 10px;
-            color: #111827;
-            font-size: 23px;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-          }
-
-          .mv-home-description p {
-            margin: 0;
-            color: #4b5563;
-            font-size: 15px;
-            line-height: 1.8;
-          }
-
-          .mv-home-vision-description {
-            text-align: right;
-            border-left: 7px solid #2563eb;
-          }
-
-          .mv-home-mission-description {
-            text-align: left;
-            border-right: 7px solid #123552;
-          }
-
-          .mv-home-number {
-            position: absolute;
-            inset: 0;
-            width: 145px;
-            height: 290px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 23px;
-            font-weight: 800;
-          }
-
-          .mv-home-vision-number {
-            background: #123552;
-            border-radius: 0 150px 150px 0;
-            justify-content: flex-end;
-            padding-right: 40px;
-          }
-
-          .mv-home-mission-number {
-            background: #2563eb;
-            border-radius: 150px 0 0 150px;
-            justify-content: flex-start;
-            padding-left: 40px;
-          }
-
-          .mv-home-marker {
-            position: absolute;
-            z-index: 3;
-            top: 50%;
-            width: 145px;
-            height: 290px;
-            transform: translateY(-50%);
-          }
-
-          .mv-home-vision-marker { left: 50%; }
-          .mv-home-mission-marker { left: calc(50% - 145px); }
-
-          .mv-home-icon {
-            position: absolute;
-            z-index: 4;
-            top: 50%;
-            width: 76px;
-            height: 76px;
-            display: grid;
-            place-items: center;
-            border: 1px solid #cbd5e1;
-            border-radius: 50%;
-            background: white;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
-            transform: translateY(-50%);
-            font-size: 34px;
-            line-height: 1;
-          }
-
-          .mv-home-vision-icon {
-            left: 0;
-            color: #123552;
-            transform: translate(-50%, -50%);
-          }
-
-          .mv-home-mission-icon {
-            right: 0;
-            color: #2563eb;
-            transform: translate(50%, -50%);
-          }
-
-          @media (max-width: 900px) {
-            .mv-home-heading {
-              min-height: 0;
-              max-width: 100%;
-              padding: 0;
-              margin-bottom: 28px;
-            }
-            .mv-home-image {
-              position: relative;
-              inset: auto;
-              width: 190px;
-              height: 190px;
-              margin: 0 auto 34px;
-            }
-            .mv-home-row {
-              display: grid;
-              grid-template-columns: 70px minmax(0, 1fr);
-              align-items: stretch;
-              gap: 14px;
-              min-height: 0;
-              margin-bottom: 18px;
-            }
-            .mv-home-marker {
-              position: relative;
-              inset: auto;
-              width: auto;
-              height: auto;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              gap: 12px;
-              transform: none;
-            }
-            .mv-home-description {
-              grid-column: 2;
-              grid-row: 1;
-              width: auto;
-              min-height: 0;
-              padding: 22px;
-              text-align: left;
-            }
-            .mv-home-number {
-              position: relative;
-              inset: auto;
-              width: 54px;
-              height: 74px;
-              border-radius: 27px;
-              padding: 0;
-              justify-content: center;
-              font-size: 15px;
-            }
-            .mv-home-icon {
-              position: static;
-              width: 48px;
-              height: 48px;
-              transform: none;
-            }
-            .mv-home-icon svg { width: 23px; height: 23px; }
-            .mv-home-vision-number,
-            .mv-home-mission-number { border-radius: 27px; }
-          }
-
-          @media (max-width: 480px) {
-            .mv-home-heading h2 { font-size: 30px; }
-            .mv-home-image { width: 165px; height: 165px; }
-            .mv-home-row { grid-template-columns: 48px minmax(0, 1fr); gap: 10px; }
-            .mv-home-description { padding: 18px 16px; }
-            .mv-home-marker { gap: 9px; }
-            .mv-home-number { width: 42px; height: 58px; border-radius: 21px; font-size: 12px; }
-            .mv-home-vision-number,
-            .mv-home-mission-number { border-radius: 21px; }
-            .mv-home-icon { width: 38px; height: 38px; font-size: 26px; }
-            .mv-home-description h4 { font-size: 20px; }
-            .mv-home-description p { font-size: 14px; }
-          }
-        `}</style>
       </section>
 
-      <CoreValuesInfographic />
+      {/* NEW: OUR CORE VALUES SECTION (Matched to Infographic Screenshot) */}
+      <section className="relative overflow-hidden bg-white py-20 sm:py-28 border-t border-slate-200/80">
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
 
-      <section className="relative isolate overflow-hidden border-y border-blue-100 bg-[#f3f8ff] py-16 text-slate-900 sm:py-20">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_78%_48%,rgba(96,165,250,0.19),transparent_42%),linear-gradient(115deg,#f8fbff_10%,#eff6ff_58%,#f4faff)]" />
-        <div className="absolute inset-0 -z-10 opacity-[0.22] [background-image:radial-gradient(#93c5fd_1px,transparent_1px)] [background-size:22px_22px]" />
-        <div className="absolute -right-28 -top-36 -z-10 h-96 w-96 rounded-full border border-blue-300/30" />
-        <div className="absolute -right-12 -top-20 -z-10 h-64 w-64 rounded-full border border-blue-300/30" />
-
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-8">
-          <div className="max-w-2xl">
-            <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-blue-200 bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.13em] text-blue-800 shadow-sm shadow-blue-900/5">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-50" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-600" />
-              </span>
-              Just launched · New from Kashsam
-            </div>
-
-            <h2 className="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.5rem]">
-              Meet <span className="text-blue-700">KashAssist</span>
-              <span className="mt-2 block text-2xl font-semibold leading-snug text-slate-700 sm:text-3xl">
-                AI assistants, made for Bharat.
-              </span>
+          {/* Header */}
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#0284C7]">
+              OUR CORE VALUES
+            </span>
+            <h2 className="mt-2 text-3xl font-extrabold tracking-[-0.035em] text-slate-950 sm:text-4xl lg:text-5xl">
+              Core Values
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
-              GST billing for kirana shops and AI study help for students — right on WhatsApp, in 10 Indian languages.
+            <p className="mx-auto mt-4 max-w-2xl text-base font-medium leading-relaxed text-slate-600 sm:text-lg">
+              Driving Transformation Through Data and Innovation. At <strong className="font-bold text-slate-900">Kashsam Data Solutions</strong>, we turn data into opportunity through AI, analytics, process automation, and data engineering.
             </p>
-
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              <span className="rounded-full border border-blue-100 bg-white/90 px-3.5 py-2 text-xs font-semibold text-slate-700 shadow-sm">
-                10 Indian languages
-              </span>
-              <span className="rounded-full border border-blue-100 bg-white/90 px-3.5 py-2 text-xs font-semibold text-slate-700 shadow-sm">
-                3 free uses
-              </span>
-              <span className="rounded-full border border-blue-100 bg-white/90 px-3.5 py-2 text-xs font-semibold text-slate-700 shadow-sm">
-                No signup required
-              </span>
-            </div>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="https://www.kashassist.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-700 px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-blue-900/20 transition hover:-translate-y-0.5 hover:bg-blue-800 active:scale-[0.98]"
-              >
-                Try it for free
-                <ArrowUpRight size={17} />
-              </a>
-              <Link
-                to="/our-products"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-blue-200 bg-white px-6 py-3.5 text-sm font-bold text-blue-800 transition hover:border-blue-300 hover:bg-blue-50 active:scale-[0.98]"
-              >
-                Explore KashAssist
-                <ArrowRight size={16} />
-              </Link>
-            </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[350px] px-2 pb-4 pt-2 sm:px-4">
-            <div className="absolute inset-x-4 inset-y-8 rounded-[3rem] bg-blue-400/20 blur-2xl" />
-            <span className="absolute -left-0.5 top-28 z-20 h-14 w-1.5 rounded-l-full bg-slate-500/80 shadow-sm" />
-            <span className="absolute -right-0.5 top-36 z-20 h-20 w-1.5 rounded-r-full bg-slate-500/80 shadow-sm" />
-            <div className="relative rounded-[3rem] border-[5px] border-[#26394b] bg-[#0a1420] p-[7px] shadow-[0_35px_90px_rgba(0,0,0,0.45)]">
-              <div className="relative overflow-hidden rounded-[2.35rem] bg-white text-slate-900">
-                <div className="relative flex h-9 items-center justify-between bg-[#064e46] px-5 text-[10px] font-bold text-white">
-                  <span>9:41</span>
-                  <span className="absolute left-1/2 top-1/2 h-[18px] w-[76px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#07120f]" />
-                  <span className="flex items-center gap-1.5">
-                    <Wifi size={12} />
-                    <BatteryFull size={14} />
-                  </span>
+          {/* 5 Pillars Timeline Layout */}
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5 items-start">
+            {coreValues.map((value) => {
+              const Icon = value.icon
+              return (
+                <div key={value.id} className="flex flex-col items-center text-center group">
+
+                  {/* Top Soft Icon Square Box */}
+                  <div
+                    className={`flex h-24 w-24 items-center justify-center rounded-3xl transition duration-300 shadow-sm ${
+                      value.isHighlight
+                        ? 'bg-[#0284C7] text-white shadow-sky-600/30 shadow-lg'
+                        : 'bg-sky-50/80 text-[#0284C7] group-hover:bg-sky-100'
+                    }`}
+                  >
+                    <Icon size={38} strokeWidth={1.75} />
+                  </div>
+
+                  {/* Dotted Vertical Connector Line */}
+                  <div className="h-6 w-0 border-l-2 border-dotted border-slate-300 my-1" />
+
+                  {/* Number Circle Badge */}
+                  <div
+                    className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-white shadow-sm ${
+                      value.isHighlight ? 'bg-[#0284C7]' : 'bg-[#0284C7]'
+                    }`}
+                  >
+                    {value.id}
+                  </div>
+
+                  {/* Text Content */}
+                  <div className="mt-4 space-y-1.5">
+                    <h3 className="text-base font-bold text-slate-900 leading-snug">
+                      {value.title}
+                    </h3>
+                    <p className="text-[10px] font-extrabold uppercase tracking-widest text-[#0284C7]">
+                      {value.subtitle}
+                    </p>
+                    <p className="pt-1 text-xs font-medium leading-relaxed text-slate-600 max-w-[210px] mx-auto">
+                      {value.description}
+                    </p>
+                  </div>
+
                 </div>
-                <div className="flex items-center gap-3 bg-[#075e54] px-4 py-3.5 text-white">
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-white/15">
-                    <MessageCircle size={20} />
+              )
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* KashAssist Showcase */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-sky-50/50 to-white py-20 sm:py-24 border-t border-slate-200/80">
+        <div className="pointer-events-none absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-sky-200/40 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 bottom-1/4 h-96 w-96 rounded-full bg-emerald-200/30 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-16">
+            <div>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#0284C7] shadow-sm">
+                <Sparkles size={14} className="text-sky-600 animate-pulse" />
+                New — From Kashsam
+              </div>
+
+              <h2 className="text-3xl font-bold leading-[1.12] tracking-[-0.035em] text-slate-950 sm:text-4xl lg:text-5xl">
+                Meet <span className="font-extrabold text-[#0284C7]">KashAssist</span>
+              </h2>
+              <p className="mt-2 text-xl font-bold tracking-tight text-slate-800 sm:text-2xl">
+                AI assistants for Bharat
+              </p>
+
+              <p className="mt-5 text-base font-medium leading-relaxed text-slate-600 sm:text-lg">
+                GST billing for kirana shops &amp; AI study help for students — delivered seamlessly on <strong className="font-bold text-slate-900">WhatsApp</strong>, in <strong className="font-bold text-slate-900">10 Indian languages</strong>.
+              </p>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                <div className="group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs transition hover:border-sky-300 hover:shadow-md">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50 text-[#0284C7]">
+                    <ReceiptText size={22} />
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-bold">KashAssist</p>
-                    <p className="text-[11px] text-emerald-100">Here to help, on WhatsApp</p>
-                  </div>
-                  <Sparkles size={18} className="text-emerald-200" />
+                  <h3 className="mt-4 text-base font-bold text-slate-900">
+                    GST Billing for Kirana Shops
+                  </h3>
+                  <p className="mt-1.5 text-xs font-medium leading-relaxed text-slate-600">
+                    Create instant GST invoices right on WhatsApp without requiring computer software.
+                  </p>
                 </div>
 
-                <div className="space-y-3 bg-[#edf5f2] p-3.5">
-                  <div className="ml-auto max-w-[88%] rounded-2xl rounded-tr-sm bg-[#d9fdd3] px-4 py-3 text-xs leading-5 text-slate-700 shadow-sm">
-                    What can I do with KashAssist?
+                <div className="group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs transition hover:border-sky-300 hover:shadow-md">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50 text-[#0284C7]">
+                    <GraduationCap size={22} />
                   </div>
-                  <div className="max-w-[96%] rounded-2xl rounded-tl-sm bg-white px-3.5 py-3 shadow-sm">
-                    <p className="mb-3 text-xs leading-5 text-slate-600">
-                      Get everyday tasks done with AI, right in your language.
-                    </p>
-                    <div className="grid gap-2">
-                      <div className="flex items-center gap-3 rounded-xl border border-slate-100 bg-slate-50 p-3">
-                        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-blue-100 text-blue-700">
-                          <ReceiptText size={18} />
-                        </span>
-                        <span>
-                          <span className="block text-xs font-bold text-slate-800">GST billing</span>
-                          <span className="mt-0.5 block text-[10px] text-slate-500">Simple billing for kirana shops</span>
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-3 rounded-xl border border-slate-100 bg-slate-50 p-3">
-                        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-cyan-100 text-cyan-800">
-                          <GraduationCap size={18} />
-                        </span>
-                        <span>
-                          <span className="block text-xs font-bold text-slate-800">AI study help</span>
-                          <span className="mt-0.5 block text-[10px] text-slate-500">Learning support for students</span>
-                        </span>
-                      </div>
+                  <h3 className="mt-4 text-base font-bold text-slate-900">
+                    AI Study Help for Students
+                  </h3>
+                  <p className="mt-1.5 text-xs font-medium leading-relaxed text-slate-600">
+                    Instant homework help, concept breakdowns, and test prep in your local language.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-y-3 gap-x-6 text-xs font-bold text-slate-700">
+                <span className="inline-flex items-center gap-2">
+                  <Languages size={17} className="text-[#0284C7]" /> 10 Indian Languages
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Zap size={17} className="text-[#0284C7]" /> 3 Free Uses Included
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <CheckCircle2 size={17} className="text-[#0284C7]" /> No Signup Required
+                </span>
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                  href="https://wa.me/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 rounded-2xl bg-[#0284C7] px-7 py-4 text-sm font-bold text-white shadow-lg shadow-sky-600/20 transition hover:-translate-y-0.5 hover:bg-[#0369A1]"
+                >
+                  <MessageSquare size={18} />
+                  Try on WhatsApp Free
+                  <ArrowRight size={16} />
+                </a>
+              </div>
+            </div>
+
+            {/* Smartphone Graphic */}
+            <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
+              <div className="absolute -inset-4 rounded-[3rem] bg-gradient-to-tr from-sky-300/40 via-emerald-300/30 to-sky-200/40 blur-2xl" />
+
+              <div className="relative mx-auto w-[290px] rounded-[2.5rem] border-[8px] border-slate-900 bg-slate-900 p-2 shadow-2xl sm:w-[320px]">
+                <div className="absolute left-1/2 top-3 h-4 w-28 -translate-x-1/2 rounded-full bg-slate-900 z-20" />
+
+                <div className="relative flex h-[520px] flex-col overflow-hidden rounded-[2rem] bg-[#efeae2]">
+                  <div className="flex items-center gap-3 bg-[#075e54] px-4 pt-7 pb-3 text-white shadow-md">
+                    <div className="relative flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#0284C7] font-bold text-sm shadow-xs">
+                      KA
+                      <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold leading-tight">KashAssist AI</h4>
+                      <p className="text-[10px] text-emerald-100 font-medium">Online · Official Assistant</p>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between px-1 pt-1 text-[10px] font-medium text-slate-500">
-                    <span>10 Indian languages</span>
-                    <span className="inline-flex items-center gap-1 text-emerald-700">
-                      <CheckCircle2 size={12} /> 3 free uses
-                    </span>
+
+                  <div className="flex-1 space-y-3 p-3 text-xs overflow-y-auto font-sans">
+                    <div className="my-1 text-center">
+                      <span className="rounded-md bg-white/80 px-2 py-0.5 text-[9px] font-semibold text-slate-500 shadow-xs">
+                        Today
+                      </span>
+                    </div>
+
+                    <div className="max-w-[85%] rounded-2xl rounded-tl-none bg-white p-3 shadow-xs text-slate-800">
+                      <p className="font-bold text-[#075e54] text-[11px] mb-1">KashAssist AI</p>
+                      Namaste! 🙏 Welcome to KashAssist.
+                      <br />How can I help you today?
+                      <div className="mt-2 flex flex-wrap gap-1">
+                        <span className="rounded-md bg-sky-50 px-2 py-1 text-[10px] font-bold text-sky-800">1. GST Bill</span>
+                        <span className="rounded-md bg-sky-50 px-2 py-1 text-[10px] font-bold text-sky-800">2. Study Help</span>
+                      </div>
+                    </div>
+
+                    <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-none bg-[#dcf8c6] p-3 shadow-xs text-slate-900">
+                      Create GST bill for 10kg Rice and 5L Oil.
+                    </div>
+
+                    <div className="max-w-[88%] rounded-2xl rounded-tl-none bg-white p-3 shadow-xs text-slate-800 space-y-2">
+                      <div className="flex items-center gap-1.5 text-emerald-700 font-bold text-[11px]">
+                        <ReceiptText size={14} /> GST Invoice Ready!
+                      </div>
+                      <div className="rounded-lg bg-slate-50 p-2 text-[10px] space-y-1 font-mono border border-slate-200/60">
+                        <div className="flex justify-between"><span>Rice (10kg):</span><span>₹600</span></div>
+                        <div className="flex justify-between"><span>Oil (5L):</span><span>₹750</span></div>
+                        <div className="flex justify-between text-slate-500"><span>GST (5%):</span><span>₹67.50</span></div>
+                        <div className="border-t border-slate-300 pt-1 flex justify-between font-bold text-slate-900">
+                          <span>Total:</span><span>₹1,417.50</span>
+                        </div>
+                      </div>
+                      <p className="text-[10px] text-slate-500">PDF sent. Reply in Hindi, Tamil, Telugu or any of 10 languages!</p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-2 text-[10px] text-slate-400 shadow-sm">
-                    <span className="h-4 w-4 rounded-full border border-slate-300" />
-                    Message KashAssist
-                    <span className="ml-auto grid h-6 w-6 place-items-center rounded-full bg-[#075e54] text-white">
-                      <ArrowRight size={12} />
-                    </span>
+
+                  <div className="flex items-center gap-2 bg-[#f0f0f0] p-2 border-t border-slate-200">
+                    <div className="flex-1 rounded-full bg-white px-3 py-1.5 text-[11px] text-slate-400 font-medium">
+                      Type a message...
+                    </div>
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#128c7e] text-white shadow-xs">
+                      <MessageSquare size={14} />
+                    </div>
                   </div>
-                </div>
-                <div className="flex h-6 items-center justify-center bg-[#edf5f2]">
-                  <span className="h-1 w-20 rounded-full bg-slate-800/80" />
                 </div>
               </div>
-            </div>
-            <div className="absolute -bottom-1 -left-2 hidden items-center gap-2 rounded-xl border border-blue-100 bg-white px-4 py-3 text-xs font-bold text-blue-900 shadow-xl sm:flex">
-                <Sparkles size={15} className="text-blue-600" />
-              Ready on WhatsApp
             </div>
           </div>
         </div>
       </section>
 
-      <section id="solutions" className="relative isolate overflow-hidden border-y border-slate-100 bg-slate-50 py-20 sm:py-24">
-        <div className="pointer-events-none absolute -right-36 -top-44 -z-10 h-[32rem] w-[32rem] rounded-full bg-blue-100/55 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-48 -left-40 -z-10 h-[30rem] w-[30rem] rounded-full bg-sky-100/55 blur-3xl" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
-            <span className="inline-flex rounded-full bg-blue-100/80 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
-              What We Do
+      {/* INFOGRAPHIC VISION & MISSION SECTION */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-sky-50/40 to-white py-20 sm:py-28 border-t border-slate-200/80">
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#0284C7]">
+              <Compass size={14} className="text-[#0284C7]" /> Strategic Foundation
             </span>
-            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
-              Our Core Services
+            <h2 className="mt-5 text-3xl font-extrabold tracking-[-0.035em] text-slate-950 sm:text-4xl lg:text-5xl">
+              Guiding Principles
             </h2>
-            <div className="mx-auto mb-5 mt-4 h-1 w-16 rounded-full bg-blue-600" />
-            <p className="text-base leading-relaxed text-slate-600 sm:text-lg">
-              Empowering businesses through cutting-edge data solutions, AI models, automation, and scalable engineering frameworks.
+            <p className="mx-auto mt-3 max-w-2xl text-base font-medium text-slate-600 sm:text-lg leading-relaxed">
+              The purpose and commitment behind the data and technology solutions we deliver.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          <div className="relative my-12 max-w-4xl mx-auto">
+
+            <div className="hidden sm:block absolute top-[110px] left-[25%] right-[25%] h-[2px] bg-slate-200/80 z-0" />
+
+            <div className="grid gap-12 sm:grid-cols-2 sm:gap-12 items-start relative z-10">
+
+              {/* CIRCLE 1: OUR VISION */}
+              <div className="flex flex-col items-center text-center group">
+                <div className="relative flex items-center justify-center">
+                  <div className="w-44 h-30 rounded-t-full border-[14px] border-b-0 border-[#0284C7] bg-transparent flex items-center justify-center transition-transform duration-500 group-hover:scale-105 shadow-xs">
+                    <div className="w-26 h-26 rounded-full bg-white shadow-xl flex items-center justify-center border border-slate-100 transform translate-y-3">
+                      <Eye size={38} className="text-[#0284C7]" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="w-1 h-12 bg-[#0284C7] my-2 relative">
+                  <div className="w-3.5 h-3.5 rounded-full bg-[#0284C7] absolute bottom-0 left-1/2 -translate-x-1/2 ring-4 ring-white" />
+                </div>
+
+                <div className="mt-4 max-w-sm space-y-2">
+                  <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#0284C7]">01 / Vision</span>
+                  <h3 className="text-2xl font-bold text-slate-900">Our Vision</h3>
+                  <p className="text-sm font-bold text-[#0284C7]">Empowering Data-Driven Success</p>
+                  <p className="text-xs sm:text-sm font-medium leading-relaxed text-slate-600 pt-1">
+                    To enable businesses through our products and services to produce, utilize, and monetize data, strengthening both their operations and data ecosystems – creating powerful network effects that drive sustainable growth.
+                  </p>
+                </div>
+              </div>
+
+              {/* CIRCLE 2: OUR MISSION */}
+              <div className="flex flex-col items-center text-center group">
+                <div className="relative flex items-center justify-center">
+                  <div className="w-44 h-30 rounded-b-full border-[14px] border-t-0 border-slate-900 bg-transparent flex items-center justify-center transition-transform duration-500 group-hover:scale-105 shadow-xs">
+                    <div className="w-26 h-26 rounded-full bg-white shadow-xl flex items-center justify-center border border-slate-100 transform -translate-y-3">
+                      <Target size={38} className="text-slate-900" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="w-1 h-12 bg-slate-900 my-2 relative">
+                  <div className="w-3.5 h-3.5 rounded-full bg-slate-900 absolute top-0 left-1/2 -translate-x-1/2 ring-4 ring-white" />
+                </div>
+
+                <div className="mt-4 max-w-sm space-y-2">
+                  <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-slate-500">02 / Mission</span>
+                  <h3 className="text-2xl font-bold text-slate-900">Our Mission</h3>
+                  <p className="text-sm font-bold text-slate-900">Innovation. Insight. Impact.</p>
+                  <p className="text-xs sm:text-sm font-medium leading-relaxed text-slate-600 pt-1">
+                    To drive digital transformation by merging data and knowledge – empowering organizations to achieve operational excellence, process improvement, and enhanced customer experiences through intelligent and secure systems.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid Preview Section */}
+      <section className="relative bg-[#F8FAFC] py-20 sm:py-24 border-t border-slate-200/80">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-sky-800">
+              <Sparkles size={14} className="text-sky-600" /> What we offer
+            </span>
+            <h2 className="mt-5 text-3xl font-bold tracking-[-0.03em] text-slate-950 sm:text-4xl lg:text-5xl">Explore Our Capabilities</h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base font-medium leading-relaxed text-slate-600 sm:text-lg">
+              Comprehensive data engineering, artificial intelligence, and analytics solutions designed for enterprise scalability.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => {
               const Icon = service.icon
-
               return (
-                <article
-                  key={service.id}
-                  className="group relative flex min-h-[340px] flex-col items-center justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-7 text-center shadow-[0_8px_30px_rgba(15,35,70,0.035)] transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-[0_22px_50px_rgba(30,64,175,0.11)] sm:p-8"
-                >
-                  <div className="absolute inset-x-1/2 bottom-0 h-[3px] w-0 -translate-x-1/2 rounded-full bg-blue-600 transition-all duration-300 group-hover:w-1/2" />
-                  <div className="relative mb-6">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-slate-100 text-blue-600 shadow-inner transition-all duration-300 group-hover:scale-105 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-lg">
-                      <Icon className="h-10 w-10" strokeWidth={1.75} />
-                    </div>
-                    <span className="absolute -right-2 -top-2 rounded-full bg-slate-200 px-2 py-0.5 text-[10px] font-extrabold text-slate-700 transition-colors group-hover:bg-blue-800 group-hover:text-white">
-                      {service.id}
-                    </span>
+                <article key={service.id} className="group relative overflow-hidden rounded-[1.75rem] border border-slate-200/80 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-xl hover:shadow-sky-950/5">
+                  <div className="absolute right-0 top-0 h-28 w-28 rounded-bl-[5rem] bg-sky-50/70 transition group-hover:bg-sky-100/70" />
+                  <div className="relative flex items-start justify-between gap-4">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-50 text-[#0284C7] ring-1 ring-sky-200/60"><Icon size={26} /></div>
+                    <span className="text-sm font-extrabold tracking-widest text-sky-700/50">{service.id}</span>
                   </div>
-
-                  <div className="flex flex-1 flex-col items-center">
-                    <h3 className="mb-3 text-xl font-bold text-slate-900 transition-colors group-hover:text-blue-700">
-                      {service.title}
-                    </h3>
-                    <p className="mb-6 max-w-sm text-sm leading-relaxed text-slate-600">
-                      {service.description}
-                    </p>
-                    <span className="mb-6 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-700">
-                      {service.tag}
-                    </span>
+                  <h3 className="relative mt-7 text-xl font-bold tracking-tight text-slate-900">{service.title}</h3>
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-slate-600">{service.description}</p>
+                  <div className="mt-6 flex items-center justify-between pt-4 border-t border-slate-100">
+                    <span className="rounded-full border border-sky-100 bg-sky-50 px-3.5 py-1.5 text-xs font-semibold text-sky-800">{service.tag}</span>
+                    <Link to={service.link} className="inline-flex items-center gap-1 text-xs font-bold text-[#0284C7] hover:underline">
+                      Learn more <ArrowRight size={14} />
+                    </Link>
                   </div>
-
-                  <Link
-                    to={service.link}
-                    className="inline-flex items-center justify-center gap-2 pt-2 text-sm font-bold text-blue-700 opacity-85 transition-all group-hover:translate-x-1 group-hover:opacity-100"
-                  >
-                    <span className="text-xs uppercase tracking-wider">Explore solution</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
                 </article>
               )
             })}
@@ -1366,25 +751,30 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-white py-20 overflow-hidden border-t border-gray-100">
+      {/* Clients & Technology Partners Infinite Scroll Marquee Section */}
+      <section className="bg-white py-20 overflow-hidden border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#122b50] tracking-tight">
+          <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-sky-800">
+            <CheckCircle2 size={14} className="text-sky-600" /> Trusted ecosystem
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-[#122b50] tracking-tight">
             Empowering the World’s Most Agile Brands and Agencies
           </h2>
         </div>
 
         <div className="space-y-8">
+          {/* Row 1: Trusted Clients Infinite Marquee */}
           <div className="relative w-full overflow-hidden flex">
-            <div className="flex animate-marquee gap-8 whitespace-nowrap min-w-full">
+            <div className="flex animate-marquee gap-8 whitespace-nowrap">
               {[...clientLogos, ...clientLogos].map((logo, index) => (
                 <div
-                  key={`row1-${index}`}
-                  className="bg-[#fafbfc] border border-gray-200/60 rounded-2xl p-4 w-44 h-24 shrink-0 flex items-center justify-center shadow-xs hover:shadow-md hover:border-blue-300 transition"
+                  key={`client-${index}`}
+                  className="bg-[#fafbfc] border border-gray-200/60 rounded-2xl p-4 h-24 w-44 shrink-0 flex items-center justify-center shadow-xs hover:shadow-md hover:border-sky-300 transition"
                 >
                   <img
                     src={logo.src}
                     alt={logo.name}
-                    className="max-h-12 w-auto object-contain transition duration-300"
+                    className="max-h-12 w-auto object-contain transition duration-300 mix-blend-multiply"
                     loading="lazy"
                   />
                 </div>
@@ -1392,17 +782,18 @@ function Home() {
             </div>
           </div>
 
+          {/* Row 2: Technology Partners Infinite Marquee */}
           <div className="relative w-full overflow-hidden flex">
-            <div className="flex animate-marquee-reverse gap-8 whitespace-nowrap min-w-full">
+            <div className="flex animate-marquee-reverse gap-8 whitespace-nowrap">
               {[...partnerLogos, ...partnerLogos].map((logo, index) => (
                 <div
-                  key={`row2-${index}`}
-                  className="bg-[#fafbfc] border border-gray-200/60 rounded-2xl p-4 w-44 h-24 shrink-0 flex items-center justify-center shadow-xs hover:shadow-md hover:border-blue-300 transition"
+                  key={`partner-${index}`}
+                  className="bg-[#fafbfc] border border-gray-200/60 rounded-2xl p-4 h-24 w-44 shrink-0 flex items-center justify-center shadow-xs hover:shadow-md hover:border-sky-300 transition"
                 >
                   <img
                     src={logo.src}
                     alt={logo.name}
-                    className="max-h-12 w-auto object-contain transition duration-300"
+                    className="max-h-12 w-auto object-contain transition duration-300 mix-blend-multiply"
                     loading="lazy"
                   />
                 </div>
@@ -1410,111 +801,86 @@ function Home() {
             </div>
           </div>
         </div>
-
-        <style>{`
-          @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-          }
-          @keyframes marquee-reverse {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0%); }
-          }
-          .animate-marquee {
-            display: flex;
-            width: max-content;
-            animation: marquee 35s linear infinite;
-          }
-          .animate-marquee-reverse {
-            display: flex;
-            width: max-content;
-            animation: marquee-reverse 35s linear infinite;
-          }
-          .animate-marquee:hover, .animate-marquee-reverse:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
       </section>
 
-      <section className="relative isolate overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
-        <div className="pointer-events-none absolute -left-40 top-10 -z-10 h-96 w-96 rounded-full bg-blue-100/60 blur-3xl" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-10 overflow-hidden rounded-[2rem] border border-blue-100 bg-[#f6f9ff] p-5 shadow-[0_28px_80px_rgba(30,64,175,0.09)] sm:gap-12 sm:p-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14 lg:p-12">
-            <div className="py-2 sm:py-4">
-              <div className="flex flex-col">
-                <span className="inline-flex w-fit items-center gap-2 rounded-full border border-blue-200 bg-white px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.17em] text-blue-700">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
-                  The challenge
-                </span>
+      {/* Business objective and data challenges */}
+      <section className="relative isolate overflow-hidden border-t border-sky-100 bg-sky-50/70 py-20 sm:py-28">
+        <div className="pointer-events-none absolute -right-36 -top-32 -z-10 h-96 w-96 rounded-full bg-sky-100/80 blur-3xl" />
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-16 lg:px-10">
+          <div className="lg:sticky lg:top-24 lg:self-start">
+            <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-sky-800">
+              <Target size={14} className="text-sky-600" /> Built for real business needs
+            </span>
+            <h2 className="mt-6 max-w-xl text-3xl font-extrabold leading-tight tracking-[-0.04em] text-slate-950 sm:text-4xl lg:text-5xl">
+              Our Business Objective Is To Solve{' '}
+              <span className="text-sky-700">Data Challenges</span>
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-7 text-slate-600">
+              Every business generates valuable data, yet many organisations—especially MSMEs, SMEs, and SOHOs—use it in only a handful of business intelligence reports. Some do not capture their business data effectively at all.
+            </p>
+            <p className="mt-4 max-w-xl text-base leading-7 text-slate-600">
+              The tools and expertise needed to turn that data into action can be out of reach. We believe analytics should be practical, scalable, and accessible to every business.
+            </p>
+            <Link
+              to="/contact"
+              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-sky-700 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-sky-900/10 transition hover:-translate-y-0.5 hover:bg-sky-800"
+            >
+              Let’s solve your data challenges <ArrowUpRight size={17} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          </div>
 
-                <h2 className="mt-6 max-w-xl text-3xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-[2.7rem]">
-                  Your data should move your business
-                  <span className="text-blue-700"> forward.</span>
-                </h2>
-
-                <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
-                  Businesses generate valuable data every day, yet many MSMEs, SMEs and SOHOs struggle to capture it, make it useful, or access the right expertise. Common barriers include:
-                </p>
-
-                <ul className="mt-7 max-w-2xl space-y-3">
-                  {[
-                    'The investment needed to capture business data effectively',
-                    'Disconnected tools for BI, data engineering and machine learning',
-                    'Expensive platforms with limited business intelligence capabilities',
-                    'Always-on BI infrastructure that makes scaling costly',
-                    'Consulting costs that put data strategy, governance and adoption out of reach',
-                  ].map((challenge, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-3 rounded-xl border border-blue-100 bg-white px-3.5 py-3 text-sm leading-5 text-slate-700 shadow-sm shadow-blue-900/[0.025] sm:px-4"
-                    >
-                      <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blue-100 text-[10px] font-bold text-blue-700">
-                        {String(idx + 1).padStart(2, '0')}
-                      </span>
-                      <span>{challenge}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-8 border-t border-blue-200/80 pt-6 sm:mt-10">
-                  <p className="text-lg font-bold tracking-tight text-slate-900 sm:text-xl">
-                    There’s a smarter way to put your data to work.
-                  </p>
-                  <Link
-                    to="/book-appointment"
-                    className="mt-4 inline-flex items-center gap-2 rounded-xl bg-blue-700 px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition hover:-translate-y-0.5 hover:bg-blue-800"
-                  >
-                    Let’s talk about your data
-                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </div>
-              </div>
+          <div>
+            <div className="mb-5">
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-sky-800">What gets in the way</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Organisations often struggle to adopt data and analytics because of:</p>
             </div>
-
-            <div className="relative min-h-[320px] overflow-hidden rounded-[1.5rem] border border-white bg-slate-100 shadow-[0_20px_55px_rgba(15,35,70,0.16)] sm:min-h-[420px] lg:min-h-[600px]">
-              <img
-                src="https://kashsam.ai/wp-content/uploads/2026/03/IMG5-scaled.jpg"
-                alt="Business data visualization representing the challenges organizations face"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/10 to-slate-950/5" />
-              <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-slate-950/45 px-3.5 py-2 text-xs font-semibold text-white shadow-lg backdrop-blur-md sm:left-7 sm:top-7">
-                <Sparkles size={14} className="text-cyan-200" />
-                From data barriers to business momentum
-              </div>
-              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-cyan-200">
-                  The opportunity
-                </p>
-                <h3 className="mt-2 max-w-md text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl">
-                  Accessible, affordable intelligence for every business.
-                </h3>
-                <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-blue-100/90">
-                  <span className="h-px w-8 bg-cyan-300" />
-                  Make better decisions with confidence
-                </div>
-              </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                {
+                  number: '01',
+                  title: 'The right data foundations',
+                  description: 'Investing in appropriate systems to capture business data accurately.',
+                  icon: Database,
+                },
+                {
+                  number: '02',
+                  title: 'Too many disconnected tools',
+                  description: 'Needing separate tools for business intelligence, data engineering, and machine learning.',
+                  icon: Layers,
+                },
+                {
+                  number: '03',
+                  title: 'Platforms that cost too much',
+                  description: 'Available platforms can be pricey while still lacking the business intelligence capabilities firms need.',
+                  icon: ReceiptText,
+                },
+                {
+                  number: '04',
+                  title: 'Always-on infrastructure',
+                  description: 'BI tools running on always-on servers add cost, with no easy scaling on demand.',
+                  icon: CloudCog,
+                },
+                {
+                  number: '05',
+                  title: 'Expert advice out of reach',
+                  description: 'Exorbitant consulting rates prevent many firms from getting the right data strategy, governance, and adoption advice.',
+                  icon: GraduationCap,
+                },
+              ].map(({ number, title, description, icon: Icon }) => (
+                <article
+                  key={number}
+                  className={`group rounded-2xl border border-sky-100 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-lg hover:shadow-sky-900/5 sm:p-6 ${number === '05' ? 'sm:col-span-2' : ''}`}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50 text-sky-700 ring-1 ring-sky-100 transition group-hover:bg-sky-700 group-hover:text-white">
+                      <Icon size={20} />
+                    </span>
+                    <span className="text-xs font-extrabold tracking-[0.16em] text-sky-700/50">{number}</span>
+                  </div>
+                  <h3 className="mt-5 text-lg font-bold tracking-tight text-slate-900">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
+                </article>
+              ))}
             </div>
           </div>
         </div>
@@ -1522,5 +888,3 @@ function Home() {
     </div>
   )
 }
-
-export default Home

@@ -82,7 +82,6 @@ export default function OurTeam() {
       backgroundColor: '#f8fafc',
       minHeight: '100vh',
       padding: '60px 20px',
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
     },
     container: {
       maxWidth: '1280px',

@@ -56,7 +56,6 @@ export default function CoreValuesInfographic() {
       className="w-full bg-white py-12 px-4 sm:px-8 lg:py-16 text-slate-800"
       style={{
         backgroundColor: '#fff',
-        fontFamily: "'Plus Jakarta Sans', Arial, Helvetica, sans-serif",
       }}
     >
       <div className="max-w-7xl mx-auto">
